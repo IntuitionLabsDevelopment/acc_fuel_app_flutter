@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.acc_fuel_app_flutter">
+    package="com.accfuelcalc.accfuelcalculator">
    <application
-        android:label="acc_fuel_app_flutter"
+        android:label="ACC Fuel Calculator"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -31,4 +31,6 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
