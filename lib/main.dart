@@ -50,15 +50,21 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
+          title: Text(
+            widget.title,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              fullWidthElevatedButton(
-                  onPressed: () {}, child: const Text('AHHHH'))
+              OutlinedButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.save),
+                label: const Text('Save'),
+              )
             ],
           ),
         ));
