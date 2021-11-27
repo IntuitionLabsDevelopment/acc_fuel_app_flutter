@@ -1,3 +1,4 @@
+import 'package:acc_fuel_app_flutter/widgets/full_width_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:acc_fuel_app_flutter/constants/app_constants.dart' as constants;
 import 'package:in_app_review/in_app_review.dart';
@@ -9,10 +10,7 @@ void migrationDialog(BuildContext context) async {
   final InAppReview inAppReview = InAppReview.instance;
 
   if (await inAppReview.isAvailable()) {
-    actionChildren.add(ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          minimumSize: const Size.fromHeight(40),
-        ),
+    actionChildren.add(fullWidthElevatedButton(
         onPressed: () async {
           Navigator.of(context).pop();
           inAppReview.openStoreListing(appStoreId: '1540153714');
@@ -20,19 +18,13 @@ void migrationDialog(BuildContext context) async {
         child: const Text('Leave a review')));
   }
   actionChildren.addAll([
-    ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          minimumSize: const Size.fromHeight(40),
-        ),
+    fullWidthElevatedButton(
         onPressed: () async {
           Navigator.of(context).pop();
           await launch(constants.githubRepo);
         },
         child: const Text('View Github Repo')),
-    ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          minimumSize: const Size.fromHeight(40),
-        ),
+    fullWidthElevatedButton(
         onPressed: () async {
           Navigator.of(context).pop();
           if (Platform.isAndroid) {
