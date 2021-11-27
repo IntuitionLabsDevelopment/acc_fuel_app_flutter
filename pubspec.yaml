@@ -38,6 +38,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+# TODO: Rework icon and add ios specific icon
 flutter_icons:
   android: true
   ios: true
