@@ -1,20 +1,17 @@
-import 'package:acc_fuel_app_flutter/widgets/calculate_button.dart';
-import 'package:acc_fuel_app_flutter/widgets/save_button.dart';
+import 'package:acc_fuel_app_flutter/modules/forms/calculator_form.dart';
+
 import 'package:flutter/material.dart';
 
 Widget calculatorScreen() {
   return Center(
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            saveButton(onPressed: () {}),
-            calculateButton(onPressed: () {}),
-          ],
-        )
-      ],
+    child: Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: const [
+          CalculatorForm(),
+        ],
+      ),
     ),
   );
 }

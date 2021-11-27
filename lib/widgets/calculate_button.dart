@@ -4,7 +4,7 @@ Widget calculateButton({
   Key? key,
   required VoidCallback? onPressed,
 }) {
-  return OutlinedButton.icon(
+  return ElevatedButton.icon(
     key: key,
     onPressed: onPressed,
     icon: const Icon(Icons.calculate),
