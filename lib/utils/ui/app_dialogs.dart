@@ -1,4 +1,4 @@
-import 'package:acc_fuel_app_flutter/widgets/full_width_elevated_button.dart';
+import 'package:acc_fuel_app_flutter/widgets/buttons/full_width_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:acc_fuel_app_flutter/constants/app_constants.dart' as constants;
 import 'package:in_app_review/in_app_review.dart';

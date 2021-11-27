@@ -1,7 +1,7 @@
-import 'package:acc_fuel_app_flutter/widgets/lap_time_input.dart';
+import 'package:acc_fuel_app_flutter/widgets/form/lap_time_input.dart';
 import 'package:flutter/material.dart';
-import 'package:acc_fuel_app_flutter/widgets/calculate_button.dart';
-import 'package:acc_fuel_app_flutter/widgets/save_button.dart';
+import 'package:acc_fuel_app_flutter/widgets/buttons/calculate_button.dart';
+import 'package:acc_fuel_app_flutter/widgets/buttons/save_button.dart';
 
 // Define a custom Form widget.
 class CalculatorForm extends StatefulWidget {
