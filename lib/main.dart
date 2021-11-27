@@ -1,4 +1,7 @@
+import 'package:acc_fuel_app_flutter/config/dark_theme.dart';
+import 'package:acc_fuel_app_flutter/config/light_theme.dart';
 import 'package:acc_fuel_app_flutter/utils/ui/app_dialogs.dart';
+import 'package:acc_fuel_app_flutter/widgets/full_width_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:acc_fuel_app_flutter/utils/helpers/v2_to_v3_migrator.dart';
 
@@ -14,10 +17,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'ACC Fuel Calculator',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
+      theme: lightTheme,
       home: const MyHomePage(title: 'ACC Fuel Calculator'),
+      darkTheme: darkTheme,
     );
   }
 }
@@ -54,7 +56,10 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [],
+            children: [
+              fullWidthElevatedButton(
+                  onPressed: () {}, child: const Text('AHHHH'))
+            ],
           ),
         ));
   }
