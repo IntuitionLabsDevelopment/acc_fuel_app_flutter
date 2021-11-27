@@ -25,6 +25,9 @@ Future<void> saveCalcInputs(String track, int carId, String conditions, int m,
   ];
 
   toSaveData[carId]![conditions] = dataForConditions;
+
+  prefs.setString(track, json.encode(toSaveData));
+  print('SAVED ${track}: ${json.encode(toSaveData)}');
 }
 
 Future<List<double>> getSavedUserData(
