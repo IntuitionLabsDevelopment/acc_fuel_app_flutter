@@ -7,6 +7,7 @@ Widget intFieldInput(
     required String labelText,
     required int maxLength,
     bool isRequired = true,
+    bool isFinal = false,
     String hintText = ''}) {
   return TextFormField(
     controller: controller,
@@ -20,7 +21,7 @@ Widget intFieldInput(
     validator: (value) {
       return validateFields(value, required: isRequired);
     },
-    textInputAction: TextInputAction.next,
+    textInputAction: isFinal ? TextInputAction.done : TextInputAction.next,
     maxLength: maxLength,
   );
 }

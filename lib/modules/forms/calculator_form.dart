@@ -18,6 +18,8 @@ class CalculatorForm extends StatefulWidget {
 class CalculatorFormState extends State<CalculatorForm> {
   final _calculatorFormKey = GlobalKey<FormState>();
 
+  /* TODO: CREATE ON CHANGED FUNCTION FOR EACH FIELD THAT CHECKS IF ALL INPUTS FULFILLED THEN CALCULATE */
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -40,8 +42,7 @@ class CalculatorFormState extends State<CalculatorForm> {
                 onPressed: () {
                   // Validate returns true if the form is valid, or false otherwise.
                   if (_calculatorFormKey.currentState!.validate()) {
-                    // If the form is valid, display a snackbar. In the real world,
-                    // you'd often call a server or save the information in a database.
+                    /* CALCULATE FUEL */
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text(minInput.text)),
                     );

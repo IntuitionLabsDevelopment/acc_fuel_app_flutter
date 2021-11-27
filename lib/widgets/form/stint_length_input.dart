@@ -23,6 +23,7 @@ Widget stintLengthField() {
             controller: stintMinInput,
             labelText: 'min',
             maxLength: 3,
-            isRequired: true)),
+            isRequired: true,
+            isFinal: true)),
   ]);
 }
