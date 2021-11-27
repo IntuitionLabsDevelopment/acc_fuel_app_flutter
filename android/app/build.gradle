@@ -50,8 +50,8 @@ android {
 
     defaultConfig {
         applicationId "com.accfuelcalc.accfuelcalculator"
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
+        minSdkVersion 19
+        targetSdkVersion 29
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
