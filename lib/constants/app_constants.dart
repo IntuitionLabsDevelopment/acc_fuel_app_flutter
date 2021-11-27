@@ -1,4 +1,6 @@
-const tracks = [
+const List<String> trackConditions = ['Dry', 'Wet'];
+
+const List<String> tracks = [
   'Barcelona',
   'Brands Hatch',
   'Donington',
@@ -20,7 +22,7 @@ const tracks = [
   'Zolder'
 ];
 
-const carsObject = {
+const Map<int, String> cars = {
   0: 'Porsche 991 GT3 R',
   1: 'Mercedes-AMG GT3',
   2: 'Ferrari 488 GT3',
@@ -61,7 +63,7 @@ const carsObject = {
   61: 'Porsche 718 Cayman GT4',
 };
 
-const carClassesObject = {
+const Map<String, List<int>> classes = {
   'GT3': [
     0,
     1,
@@ -93,5 +95,3 @@ const carClassesObject = {
   'ST': [18],
   'Cup': [9],
 };
-
-const trackConditions = ['Dry', 'Wet'];
