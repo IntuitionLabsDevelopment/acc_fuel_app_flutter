@@ -1,20 +1,6 @@
+import 'package:acc_fuel_app_flutter/utils/helpers/form_field_validation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-String? validateIntFields(String? value, {bool required = true}) {
-  if (required) {
-    if (value == null || value.isEmpty) {
-      return 'Please enter value';
-    }
-  } else if (value == '') {
-    return null;
-  }
-
-  if (value != null && int.parse(value) < 0) {
-    return 'Cannot be negative';
-  }
-  return null;
-}
 
 Widget intFieldInput(
     {required TextEditingController controller,
@@ -29,9 +15,10 @@ Widget intFieldInput(
     decoration: InputDecoration(
         labelText: labelText,
         border: const OutlineInputBorder(),
+        counterText: "",
         hintText: hintText),
     validator: (value) {
-      return validateIntFields(value, required: isRequired);
+      return validateFields(value, required: isRequired);
     },
     textInputAction: TextInputAction.next,
     maxLength: maxLength,

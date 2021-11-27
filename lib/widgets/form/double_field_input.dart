@@ -15,6 +15,7 @@ Widget doubleFieldInput(
     decoration: InputDecoration(
         labelText: labelText,
         border: const OutlineInputBorder(),
+        counterText: "",
         hintText: hintText),
     validator: (value) {
       return validateFields(value, required: isRequired);

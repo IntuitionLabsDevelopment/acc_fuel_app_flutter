@@ -1,4 +1,6 @@
 import 'package:acc_fuel_app_flutter/widgets/form/lap_time_input.dart';
+import 'package:acc_fuel_app_flutter/widgets/form/litres_per_lap_input.dart';
+import 'package:acc_fuel_app_flutter/widgets/form/stint_length_input.dart';
 import 'package:flutter/material.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/calculate_button.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/save_button.dart';
@@ -23,6 +25,13 @@ class CalculatorFormState extends State<CalculatorForm> {
       child: Column(
         children: <Widget>[
           lapTimeFields(),
+          Row(
+            children: [
+              Expanded(flex: 1, child: litresPerLapField()),
+              const Padding(padding: EdgeInsets.only(right: 10)),
+              Expanded(flex: 1, child: stintLengthField()),
+            ],
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [

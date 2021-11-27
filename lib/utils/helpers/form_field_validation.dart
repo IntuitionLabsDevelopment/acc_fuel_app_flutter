@@ -1,7 +1,7 @@
 String? validateFields(String? value, {bool required = true}) {
   if (required) {
     if (value == null || value.isEmpty) {
-      return 'Please enter value';
+      return '*';
     }
   } else if (value == '') {
     return null;
