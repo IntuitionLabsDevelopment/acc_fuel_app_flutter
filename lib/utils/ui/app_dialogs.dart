@@ -48,9 +48,9 @@ void migrationDialog(BuildContext context) async {
     context: context,
     builder: (context) => AlertDialog(
       title: const Text('A Thank You Message!'),
-      content: Container(
+      content: const SizedBox(
           height: 200,
-          child: const SingleChildScrollView(
+          child: SingleChildScrollView(
               child: Text(constants.thankYouForInstalling))),
       actions: actionChildren,
     ),
