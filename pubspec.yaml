@@ -1,5 +1,6 @@
 name: acc_fuel_app_flutter
-description: A new Flutter project.
+description: ACC Fuel Calculator.
+repository: https://github.com/jakecoombs/acc_fuel_app_flutter
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -30,7 +31,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  in_app_review: ^2.0.3
   shared_preferences: ^2.0.9
+  url_launcher: ^6.0.15
 
 dev_dependencies:
   flutter_launcher_icons: ^0.9.2

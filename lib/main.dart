@@ -39,7 +39,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   _checkMigrated() async {
     bool migrated = await checkForMigration();
-    print(migrated);
     if (migrated) {
       migrationDialog(context);
     }
