@@ -21,8 +21,6 @@ class CalculatorForm extends StatefulWidget {
 class CalculatorFormState extends State<CalculatorForm> {
   final _calculatorFormKey = GlobalKey<FormState>();
 
-  /* TODO: CREATE ON CHANGED FUNCTION FOR EACH FIELD THAT CHECKS IF ALL INPUTS FULFILLED THEN CALCULATE */
-
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -38,6 +36,8 @@ class CalculatorFormState extends State<CalculatorForm> {
                 return isUsingStint ? lapTimeFields() : const SizedBox.shrink();
               }),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(child: litresPerLapField()),
               const Padding(padding: EdgeInsets.only(right: 10)),
