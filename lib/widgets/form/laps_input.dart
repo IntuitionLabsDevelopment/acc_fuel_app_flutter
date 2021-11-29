@@ -15,7 +15,8 @@ Widget lapsInputField() {
                   controller: lapsInput,
                   labelText: 'laps',
                   maxLength: 4,
-                  isRequired: !isUsingStint)),
+                  isRequired: !isUsingStint,
+                  isFinal: true)),
         ]);
       });
 }

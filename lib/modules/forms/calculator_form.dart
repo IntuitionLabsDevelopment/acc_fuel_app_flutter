@@ -33,7 +33,10 @@ class CalculatorFormState extends State<CalculatorForm> {
               valueListenable: usingStintNotifier,
               builder:
                   (BuildContext context, bool isUsingStint, Widget? child) {
-                return isUsingStint ? lapTimeFields() : const SizedBox.shrink();
+                return Visibility(
+                  child: lapTimeFields(),
+                  visible: isUsingStint,
+                );
               }),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -46,9 +49,11 @@ class CalculatorFormState extends State<CalculatorForm> {
                     valueListenable: usingStintNotifier,
                     builder: (BuildContext context, bool isUsingStint,
                         Widget? child) {
-                      return isUsingStint
-                          ? stintLengthField()
-                          : lapsInputField();
+                      return Visibility(
+                        child: stintLengthField(),
+                        replacement: lapsInputField(),
+                        visible: isUsingStint,
+                      );
                     }),
               ),
             ],
