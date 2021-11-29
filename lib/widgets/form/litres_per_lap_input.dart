@@ -7,7 +7,6 @@ final TextEditingController litresInput = TextEditingController();
 Widget litresPerLapField() {
   return fieldsSection('Litres Per Lap', [
     Expanded(
-        flex: 1,
         child: doubleFieldInput(
             controller: litresInput, labelText: 'L', maxLength: 5)),
   ]);

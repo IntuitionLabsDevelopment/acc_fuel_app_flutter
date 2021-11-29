@@ -1,3 +1,4 @@
+import 'package:acc_fuel_app_flutter/widgets/form/input_options.dart';
 import 'package:acc_fuel_app_flutter/widgets/form/lap_time_input.dart';
 import 'package:acc_fuel_app_flutter/widgets/form/litres_per_lap_input.dart';
 import 'package:acc_fuel_app_flutter/widgets/form/stint_length_input.dart';
@@ -25,13 +26,24 @@ class CalculatorFormState extends State<CalculatorForm> {
     return Form(
       key: _calculatorFormKey,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
+          inputOptionsFields(),
           lapTimeFields(),
           Row(
             children: [
-              Expanded(flex: 1, child: litresPerLapField()),
+              Expanded(child: litresPerLapField()),
               const Padding(padding: EdgeInsets.only(right: 10)),
-              Expanded(flex: 1, child: stintLengthField()),
+              Expanded(
+                child: ValueListenableBuilder(
+                    valueListenable: usingStintNotifier,
+                    builder: (BuildContext context, bool isUsingStint,
+                        Widget? child) {
+                      return isUsingStint
+                          ? stintLengthField()
+                          : const Text('Not Using Stint');
+                    }),
+              ),
             ],
           ),
           Row(

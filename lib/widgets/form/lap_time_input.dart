@@ -10,17 +10,14 @@ final TextEditingController msInput = TextEditingController();
 Widget lapTimeFields() {
   return fieldsSection('Lap Time', [
     Expanded(
-        flex: 1,
         child: intFieldInput(
-            controller: minInput, labelText: 'min', maxLength: 1)),
+            controller: minInput, labelText: 'min', maxLength: 2)),
     formTextFiller(' : '),
     Expanded(
-        flex: 1,
         child: intFieldInput(
             controller: secInput, labelText: 'sec', maxLength: 2)),
     formTextFiller(' . '),
     Expanded(
-        flex: 1,
         child: intFieldInput(
             controller: msInput,
             labelText: 'ms',
