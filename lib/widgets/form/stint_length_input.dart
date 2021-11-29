@@ -11,7 +11,7 @@ Widget stintLengthField() {
   return ValueListenableBuilder(
       valueListenable: usingStintNotifier,
       builder: (BuildContext context, bool isUsingStint, Widget? child) {
-        return fieldsSection('Stint Length', [
+        return fieldsSection('Stint/Race Length', [
           Expanded(
               child: intFieldInput(
                   controller: stintHourInput,

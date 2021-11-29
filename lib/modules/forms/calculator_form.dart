@@ -1,5 +1,6 @@
 import 'package:acc_fuel_app_flutter/widgets/form/input_options.dart';
 import 'package:acc_fuel_app_flutter/widgets/form/lap_time_input.dart';
+import 'package:acc_fuel_app_flutter/widgets/form/laps_input.dart';
 import 'package:acc_fuel_app_flutter/widgets/form/litres_per_lap_input.dart';
 import 'package:acc_fuel_app_flutter/widgets/form/stint_length_input.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,7 @@ class CalculatorFormState extends State<CalculatorForm> {
                         Widget? child) {
                       return isUsingStint
                           ? stintLengthField()
-                          : const Text('Not Using Stint');
+                          : lapsInputField();
                     }),
               ),
             ],
