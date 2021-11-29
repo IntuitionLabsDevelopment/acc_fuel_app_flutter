@@ -1,3 +1,4 @@
+import 'package:acc_fuel_app_flutter/utils/helpers/calculate_fuel.dart';
 import 'package:acc_fuel_app_flutter/widgets/form/input_options.dart';
 import 'package:acc_fuel_app_flutter/widgets/form/lap_time_input.dart';
 import 'package:acc_fuel_app_flutter/widgets/form/laps_input.dart';
@@ -30,7 +31,12 @@ class CalculatorFormState extends State<CalculatorForm> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           inputOptionsFields(),
-          lapTimeFields(),
+          ValueListenableBuilder(
+              valueListenable: usingStintNotifier,
+              builder:
+                  (BuildContext context, bool isUsingStint, Widget? child) {
+                return isUsingStint ? lapTimeFields() : const SizedBox.shrink();
+              }),
           Row(
             children: [
               Expanded(child: litresPerLapField()),
@@ -56,9 +62,7 @@ class CalculatorFormState extends State<CalculatorForm> {
                   // Validate returns true if the form is valid, or false otherwise.
                   if (_calculatorFormKey.currentState!.validate()) {
                     /* CALCULATE FUEL */
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(minInput.text)),
-                    );
+                    calculateFuel();
                   }
                 },
               ),
