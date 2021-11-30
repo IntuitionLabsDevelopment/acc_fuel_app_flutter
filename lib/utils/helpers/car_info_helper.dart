@@ -18,10 +18,18 @@ String getCarIdFromName(String name) {
   throw Error();
 }
 
-String getCarNameFromId(int id) {
+String getCarNameFromId(String id) {
   String? name = constants.cars[id];
   if (name == null) {
     throw Error();
   }
   return name;
+}
+
+List<String> getCarsFromClass(String carClass) {
+  List<String>? cars = constants.classes[carClass];
+  if (cars == null) {
+    throw Error();
+  }
+  return cars;
 }
