@@ -4,28 +4,34 @@ import 'package:acc_fuel_app_flutter/widgets/buttons/github_button.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/leave_review_button.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/looking_for_themes_button.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/purchase_pro_version.dart';
+import 'package:acc_fuel_app_flutter/widgets/buttons/submit_translation_button.dart';
+import 'package:acc_fuel_app_flutter/widgets/buttons/suggestion_button.dart';
 import 'package:acc_fuel_app_flutter/widgets/unit_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 Widget spacer() {
   return const SizedBox(
-    height: 20,
+    height: 15,
   );
 }
 
 Widget settingsScreen(BuildContext context) {
   return Center(
     child: Padding(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           unitSwitch(),
           spacer(),
+          submitTranslationButton(),
+          spacer(),
           lookingForThemesButton(context),
           spacer(),
           leaveReviewButton(context),
+          spacer(),
+          suggestionButton(context),
           spacer(),
           githubButton(context),
           spacer(),
