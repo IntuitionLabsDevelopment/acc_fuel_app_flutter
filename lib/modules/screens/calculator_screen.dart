@@ -15,7 +15,8 @@ Widget calculatorScreen(BuildContext context) {
         children: [
           calculatorOutputDisplay(context),
           const CalculatorForm(),
-          calculatorSelectionsSection(context)
+          calculatorSelectionsSection(context),
+          clearDataButton()
         ],
       ),
     ),
