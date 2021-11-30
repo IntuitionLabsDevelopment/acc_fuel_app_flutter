@@ -1,15 +1,20 @@
 import 'package:acc_fuel_app_flutter/widgets/form/fields_section.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 ValueNotifier<bool> usingStintNotifier = ValueNotifier(true);
 ValueNotifier<bool> formationLapNotifier = ValueNotifier(false);
 
-void updateUsingStint(bool newValue) {
+void updateUsingStint(bool newValue) async {
   usingStintNotifier.value = newValue;
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  prefs.setBool('setUsingStint', newValue);
 }
 
-void updateFormationLap(bool newValue) {
+void updateFormationLap(bool newValue) async {
   formationLapNotifier.value = newValue;
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  prefs.setBool('setFormationLap', newValue);
 }
 
 Widget inputOptionsFields() {

@@ -39,7 +39,6 @@ Future<Map<String, List<dynamic>>> getSavedUserData(
   if (trackData != null) {
     dynamic savedData = jsonDecode(trackData);
     if (savedData[carId]?[conditions] != null) {
-      print(savedData[carId]![conditions]!);
       return Map.from(savedData[carId]![conditions]!);
     }
   }

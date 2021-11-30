@@ -2,8 +2,11 @@ import 'package:acc_fuel_app_flutter/config/dark_theme.dart';
 import 'package:acc_fuel_app_flutter/config/light_theme.dart';
 import 'package:acc_fuel_app_flutter/modules/screens/calculator_screen.dart';
 import 'package:acc_fuel_app_flutter/utils/ui/app_dialogs.dart';
+import 'package:acc_fuel_app_flutter/widgets/form/input_options.dart';
+import 'package:acc_fuel_app_flutter/widgets/selections_section.dart';
 import 'package:flutter/material.dart';
 import 'package:acc_fuel_app_flutter/utils/helpers/v2_to_v3_migrator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,12 +40,49 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     _checkMigrated();
+    _initCombos();
   }
 
   _checkMigrated() async {
     bool migrated = await checkForMigration();
     if (migrated) {
       migrationDialog(context);
+    }
+  }
+
+  _initCombos() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    bool? setFormationLap = prefs.getBool('setFormationLap');
+    if (setFormationLap != null) {
+      updateFormationLap(setFormationLap);
+    }
+
+    bool? setUsingStint = prefs.getBool('setUsingStint');
+    if (setUsingStint != null) {
+      updateUsingStint(setUsingStint);
+    }
+
+    String? setConditions = prefs.getString('setConditions');
+    if (setConditions != null) {
+      updateConditions(setConditions);
+    }
+
+    String? setTrack = prefs.getString('setTrack');
+    if (setTrack != null) {
+      updateTracks(setTrack);
+    }
+
+    String? setClass = prefs.getString('setClass');
+    if (setClass != null) {
+      updateClass(setClass);
+    } else {
+      updateClass('GT3');
+    }
+
+    String? setCar = prefs.getString('setCar');
+    if (setCar != null) {
+      updateCar(setCar);
     }
   }
 
