@@ -1,5 +1,6 @@
 import 'package:acc_fuel_app_flutter/config/dark_theme.dart';
 import 'package:acc_fuel_app_flutter/config/light_theme.dart';
+import 'package:acc_fuel_app_flutter/modules/routes/settings_route.dart';
 import 'package:acc_fuel_app_flutter/modules/screens/calculator_screen.dart';
 import 'package:acc_fuel_app_flutter/utils/ui/app_dialogs.dart';
 import 'package:acc_fuel_app_flutter/widgets/form/input_options.dart';
@@ -94,6 +95,20 @@ class _MyHomePageState extends State<MyHomePage> {
             widget.title,
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
+          actions: [
+            Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SettingsRoute()),
+                    );
+                  },
+                  child: const Icon(Icons.settings),
+                )),
+          ],
         ),
         body: SingleChildScrollView(child: calculatorScreen(context)));
   }
