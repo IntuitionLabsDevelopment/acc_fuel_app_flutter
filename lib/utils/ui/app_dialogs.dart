@@ -133,3 +133,14 @@ void calculatorOptionsDialog(BuildContext context) async {
     ),
   );
 }
+
+void whereThemeOptionsDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (context) => const AlertDialog(
+      title: Text('Looking for Theme Options?'),
+      content: Text(
+          'Theme Options have been removed and the app now uses System Default Theme'),
+    ),
+  );
+}
