@@ -5,6 +5,7 @@ import 'package:acc_fuel_app_flutter/modules/screens/calculator_screen.dart';
 import 'package:acc_fuel_app_flutter/utils/ui/app_dialogs.dart';
 import 'package:acc_fuel_app_flutter/widgets/form/input_options.dart';
 import 'package:acc_fuel_app_flutter/widgets/selections_section.dart';
+import 'package:acc_fuel_app_flutter/widgets/unit_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:acc_fuel_app_flutter/utils/helpers/v2_to_v3_migrator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -53,6 +54,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   _initCombos() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    bool? setUsingLitres = prefs.getBool('setUsingLitres');
+    if (setUsingLitres != null) {
+      updateUsingLitres(setUsingLitres);
+    }
 
     bool? setFormationLap = prefs.getBool('setFormationLap');
     if (setFormationLap != null) {

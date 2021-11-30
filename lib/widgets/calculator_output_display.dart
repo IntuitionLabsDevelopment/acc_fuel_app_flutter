@@ -1,6 +1,7 @@
 import 'package:acc_fuel_app_flutter/utils/helpers/calculate_fuel.dart';
 import 'package:acc_fuel_app_flutter/widgets/calculator_output_section.dart';
 import 'package:acc_fuel_app_flutter/widgets/form/input_options.dart';
+import 'package:acc_fuel_app_flutter/widgets/unit_switch.dart';
 import 'package:flutter/material.dart';
 
 Widget calculatorOutputDisplay(BuildContext context) {
@@ -23,11 +24,16 @@ Widget calculatorOutputDisplay(BuildContext context) {
                     valueListenable: riskyFuelNotifier,
                     builder:
                         (BuildContext context, int riskyFuel, Widget? child) {
-                      return Expanded(
-                          child: calculatorOutputSection(
-                        title: 'Risky Fuel',
-                        value: riskyFuel.toString() + 'L',
-                      ));
+                      return ValueListenableBuilder(
+                          valueListenable: unitNotifier,
+                          builder: (BuildContext context,
+                              Map<String, String> units, Widget? child) {
+                            return Expanded(
+                                child: calculatorOutputSection(
+                              title: 'Risky Fuel',
+                              value: riskyFuel.toString() + units['short']!,
+                            ));
+                          });
                     }),
                 Container(
                     width: 2,
@@ -40,11 +46,16 @@ Widget calculatorOutputDisplay(BuildContext context) {
                     valueListenable: safeFuelNotifier,
                     builder:
                         (BuildContext context, int safeFuel, Widget? child) {
-                      return Expanded(
-                          child: calculatorOutputSection(
-                        title: 'Safe Fuel',
-                        value: safeFuel.toString() + 'L',
-                      ));
+                      return ValueListenableBuilder(
+                          valueListenable: unitNotifier,
+                          builder: (BuildContext context,
+                              Map<String, String> units, Widget? child) {
+                            return Expanded(
+                                child: calculatorOutputSection(
+                              title: 'Safe Fuel',
+                              value: safeFuel.toString() + units['short']!,
+                            ));
+                          });
                     }),
                 Visibility(
                   visible: usingStint,

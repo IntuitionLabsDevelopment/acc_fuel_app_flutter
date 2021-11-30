@@ -4,6 +4,7 @@ import 'package:acc_fuel_app_flutter/widgets/buttons/github_button.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/leave_review_button.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/looking_for_themes_button.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/purchase_pro_version.dart';
+import 'package:acc_fuel_app_flutter/widgets/unit_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -20,6 +21,8 @@ Widget settingsScreen(BuildContext context) {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          unitSwitch(),
+          spacer(),
           lookingForThemesButton(context),
           spacer(),
           leaveReviewButton(context),
