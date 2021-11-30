@@ -55,6 +55,6 @@ class _MyHomePageState extends State<MyHomePage> {
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
-        body: calculatorScreen());
+        body: calculatorScreen(context));
   }
 }
