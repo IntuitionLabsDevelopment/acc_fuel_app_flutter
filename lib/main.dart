@@ -9,6 +9,9 @@ import 'package:acc_fuel_app_flutter/widgets/unit_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:acc_fuel_app_flutter/utils/helpers/v2_to_v3_migrator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:acc_fuel_app_flutter/constants/app_constants.dart' as constants;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,6 +28,8 @@ class MyApp extends StatelessWidget {
       theme: lightTheme,
       home: const MyHomePage(title: 'ACC Fuel Calculator'),
       darkTheme: darkTheme,
+      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
     );
   }
 }

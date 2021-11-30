@@ -3,6 +3,7 @@ import 'package:acc_fuel_app_flutter/widgets/calculator_output_section.dart';
 import 'package:acc_fuel_app_flutter/widgets/form/input_options.dart';
 import 'package:acc_fuel_app_flutter/widgets/unit_switch.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 Widget calculatorOutputDisplay(BuildContext context) {
   return ValueListenableBuilder(
@@ -30,7 +31,7 @@ Widget calculatorOutputDisplay(BuildContext context) {
                               Map<String, String> units, Widget? child) {
                             return Expanded(
                                 child: calculatorOutputSection(
-                              title: 'Risky Fuel',
+                              title: AppLocalizations.of(context)!.riskyFuel,
                               value: riskyFuel.toString() + units['short']!,
                             ));
                           });
@@ -52,7 +53,7 @@ Widget calculatorOutputDisplay(BuildContext context) {
                               Map<String, String> units, Widget? child) {
                             return Expanded(
                                 child: calculatorOutputSection(
-                              title: 'Safe Fuel',
+                              title: AppLocalizations.of(context)!.safeFuel,
                               value: safeFuel.toString() + units['short']!,
                             ));
                           });
@@ -75,7 +76,7 @@ Widget calculatorOutputDisplay(BuildContext context) {
                           Widget? child) {
                         return Expanded(
                             child: calculatorOutputSection(
-                          title: 'Estimated Laps',
+                          title: AppLocalizations.of(context)!.estLaps,
                           value: estimatedLaps.toString(),
                         ));
                       }),

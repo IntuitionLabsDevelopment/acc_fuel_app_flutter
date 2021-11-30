@@ -9,6 +9,8 @@ const androidProVersion =
 const iosProVersion =
     'https://apps.apple.com/us/app/acc-fuel-calculator-pro/id1541953578';
 
+const Map<String, String> supportedLocales = {'en': 'English', 'es': 'Spanish'};
+
 const Map<String, String> trackConditions = {
   '0': 'Dry',
   '1': 'Damp',

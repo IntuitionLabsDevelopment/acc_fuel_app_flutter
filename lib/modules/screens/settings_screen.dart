@@ -6,6 +6,7 @@ import 'package:acc_fuel_app_flutter/widgets/buttons/looking_for_themes_button.d
 import 'package:acc_fuel_app_flutter/widgets/buttons/purchase_pro_version.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/submit_translation_button.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/suggestion_button.dart';
+import 'package:acc_fuel_app_flutter/widgets/language_dropdown.dart';
 import 'package:acc_fuel_app_flutter/widgets/unit_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -25,6 +26,7 @@ Widget settingsScreen(BuildContext context) {
         children: [
           unitSwitch(),
           spacer(),
+          languageDropdown(),
           submitTranslationButton(),
           spacer(),
           lookingForThemesButton(context),
