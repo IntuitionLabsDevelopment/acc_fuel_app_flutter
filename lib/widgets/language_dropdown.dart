@@ -5,28 +5,28 @@ import 'package:acc_fuel_app_flutter/constants/app_constants.dart' as constants;
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-ValueNotifier<String> localeNotifier = ValueNotifier('en');
+ValueNotifier<Locale> localeNotifier = ValueNotifier(const Locale('en'));
 
-void updateLocale(BuildContext context, String value) async {
-  localeNotifier.value = value;
+void updateLocale(String value) async {
+  localeNotifier.value = Locale(value);
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  prefs.setString('setLocale', value);
+  prefs.setString('setLocaleCode', value);
   Get.updateLocale(Locale(value));
 }
 
 Widget languageDropdown() {
   return ValueListenableBuilder(
       valueListenable: localeNotifier,
-      builder: (BuildContext context, String locale, Widget? child) {
+      builder: (BuildContext context, Locale locale, Widget? child) {
         return dropdownButton(
-            value: locale,
+            value: locale.languageCode,
             title: AppLocalizations.of(context)!.language,
             options: constants.supportedLocales.keys.toList(),
             optionMapper: (dynamic languageCode) {
               return Text(constants.supportedLocales[languageCode]!);
             },
             onChanged: (dynamic value) {
-              updateLocale(context, value);
+              updateLocale(value);
             });
       });
 }

@@ -4,13 +4,12 @@ import 'package:acc_fuel_app_flutter/modules/routes/settings_route.dart';
 import 'package:acc_fuel_app_flutter/modules/screens/calculator_screen.dart';
 import 'package:acc_fuel_app_flutter/utils/ui/app_dialogs.dart';
 import 'package:acc_fuel_app_flutter/widgets/form/input_options.dart';
+import 'package:acc_fuel_app_flutter/widgets/language_dropdown.dart';
 import 'package:acc_fuel_app_flutter/widgets/selections_section.dart';
 import 'package:acc_fuel_app_flutter/widgets/unit_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:acc_fuel_app_flutter/utils/helpers/v2_to_v3_migrator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:acc_fuel_app_flutter/constants/app_constants.dart' as constants;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
@@ -23,14 +22,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ACC Fuel Calculator',
-      theme: lightTheme,
-      home: const MyHomePage(title: 'ACC Fuel Calculator'),
-      darkTheme: darkTheme,
-      supportedLocales: AppLocalizations.supportedLocales,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-    );
+    return ValueListenableBuilder(
+        valueListenable: localeNotifier,
+        builder: (BuildContext context, Locale locale, Widget? child) {
+          return MaterialApp(
+            title: 'ACC Fuel Calculator',
+            theme: lightTheme,
+            home: const MyHomePage(title: 'ACC Fuel Calculator'),
+            darkTheme: darkTheme,
+            locale: locale,
+            supportedLocales: AppLocalizations.supportedLocales,
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+          );
+        });
   }
 }
 
@@ -59,6 +63,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   _initCombos() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    String? setLocaleCode = prefs.getString('setLocaleCode');
+    if (setLocaleCode != null) {
+      updateLocale(setLocaleCode);
+    }
 
     bool? setUsingLitres = prefs.getBool('setUsingLitres');
     if (setUsingLitres != null) {
