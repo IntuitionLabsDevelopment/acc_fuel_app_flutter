@@ -40,13 +40,14 @@ Future<void> migrateUserDataToV3() async {
       if (dryData != null) {
         try {
           saveCalcInputs(
-              trackId,
-              carId,
-              getConditionsIdFromName('Dry'),
-              int.parse(dryData[0]),
-              int.parse(dryData[1]),
-              0,
-              double.parse(dryData[2]));
+            trackId,
+            carId,
+            getConditionsIdFromName('Dry'),
+            double.parse(dryData[2]),
+            int.parse(dryData[0]),
+            int.parse(dryData[1]),
+            0,
+          );
 
           /* prefs.remove(legacyKey); */
         } catch (e) {
@@ -58,13 +59,14 @@ Future<void> migrateUserDataToV3() async {
       if (wetData != null) {
         try {
           saveCalcInputs(
-              trackId,
-              carId,
-              getConditionsIdFromName('Wet'),
-              int.parse(wetData[0]),
-              int.parse(wetData[1]),
-              0,
-              double.parse(wetData[2]));
+            trackId,
+            carId,
+            getConditionsIdFromName('Wet'),
+            double.parse(wetData[2]),
+            int.parse(wetData[0]),
+            int.parse(wetData[1]),
+            0,
+          );
 
           /* prefs.remove(legacyKey + 'Wet'); */
         } catch (e) {

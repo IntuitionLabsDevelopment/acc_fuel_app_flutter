@@ -2,7 +2,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 
 Future<void> saveCalcInputs(String track, String carId, String conditions,
-    int m, int s, int ms, double litres) async {
+    double litres, int? m, int? s, int? ms) async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
 
   /* GET EXISTING DATA */
@@ -17,13 +17,19 @@ Future<void> saveCalcInputs(String track, String carId, String conditions,
     toSaveData[carId] = {};
   }
 
-  List<dynamic> dataForConditions = [m, s, ms, litres];
-  toSaveData[carId]![conditions] = dataForConditions;
+  if (toSaveData[carId]![conditions] == null) {
+    toSaveData[carId]![conditions] = {};
+  }
+
+  toSaveData[carId]![conditions]['lpl'] = [litres];
+  if (m != null || s != null || ms != null) {
+    toSaveData[carId]![conditions]['lapTime'] = [m ?? 0, s ?? 0, ms ?? 0];
+  }
 
   prefs.setString(track, jsonEncode(toSaveData));
 }
 
-Future<List<dynamic>> getSavedUserData(
+Future<Map<String, List<dynamic>>> getSavedUserData(
     String track, String carId, String conditions) async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
 
@@ -33,9 +39,13 @@ Future<List<dynamic>> getSavedUserData(
   if (trackData != null) {
     dynamic savedData = jsonDecode(trackData);
     if (savedData[carId]?[conditions] != null) {
-      return savedData[carId]![conditions]!;
+      print(savedData[carId]![conditions]!);
+      return Map.from(savedData[carId]![conditions]!);
     }
   }
 
-  return [0, 0, 0, 0];
+  return {
+    'lapTime': [null, null, null],
+    'lpl': [null]
+  };
 }

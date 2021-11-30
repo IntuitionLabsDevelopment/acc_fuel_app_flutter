@@ -30,10 +30,9 @@ void calculateFuel() {
   if (usingStint) {
     int lapMins = int.parse(minInput.text);
     int lapSecs = int.parse(secInput.text);
-    int? hours = int.parse(stintHourInput.text);
     int totalMins = int.parse(stintMinInput.text);
     if (stintHourInput.text != '') {
-      totalMins += hours * 60;
+      totalMins += int.parse(stintHourInput.text) * 60;
     }
     int totalSecs = totalMins * 60;
     double totalLapSecs = (lapMins * 60 + lapSecs).toDouble();
@@ -55,6 +54,4 @@ void calculateFuel() {
 
   updateRiskyFuel(roundedRiskyFuel);
   updateSafeFuel(roundedSafeFuel);
-
-  print(roundedRiskyFuel);
 }
