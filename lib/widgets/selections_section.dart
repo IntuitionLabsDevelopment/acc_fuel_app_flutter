@@ -1,12 +1,17 @@
-import 'package:acc_fuel_app_flutter/utils/helpers/car_info_helper.dart';
+import 'package:acc_fuel_app_flutter/utils/helpers/car_helper.dart';
+import 'package:acc_fuel_app_flutter/utils/helpers/conditions_helper.dart';
+import 'package:acc_fuel_app_flutter/utils/helpers/track_helper.dart';
+import 'package:acc_fuel_app_flutter/utils/ui/app_dialogs.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/selections_button.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-ValueNotifier<String> conditionsNotifier = ValueNotifier('Dry');
-ValueNotifier<String> tracksNotifier = ValueNotifier('Barcelona');
+ValueNotifier<String> conditionsNotifier = ValueNotifier('0');
+ValueNotifier<String> tracksNotifier = ValueNotifier('0');
 ValueNotifier<String> classNotifier = ValueNotifier('GT3');
 ValueNotifier<String> carNotifier = ValueNotifier('0');
+ValueNotifier<List<String>> carOptionsNotifier =
+    ValueNotifier(getCarsFromClass(classNotifier.value));
 
 void updateConditions(String value) async {
   conditionsNotifier.value = value;
@@ -23,7 +28,8 @@ void updateTracks(String value) async {
 void updateClass(String value) async {
   if (classNotifier.value != value) {
     List<String> carsForClass = getCarsFromClass(value);
-    carNotifier.value = carsForClass[0];
+    carOptionsNotifier.value = carsForClass;
+    updateCar(carsForClass[0]);
   }
   classNotifier.value = value;
 
@@ -34,27 +40,27 @@ void updateClass(String value) async {
 void updateCar(String value) async {
   carNotifier.value = value;
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  prefs.setString('setCarId', value);
+  prefs.setString('setCar', value);
 }
 
-Widget calculatorSelectionsSection() {
+Widget calculatorSelectionsSection(BuildContext context) {
   return Padding(
     padding: const EdgeInsets.only(top: 10),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         selectionsButton(onPressed: () {
-          /* OPEN SELECTIONS DIALOG */
+          calculatorOptionsDialog(context);
         }),
         ValueListenableBuilder(
             valueListenable: conditionsNotifier,
             builder: (BuildContext context, String conditions, Widget? child) {
-              return Text('Conditions: ' + conditions);
+              return Text('Conditions: ' + getConditionsNameFromId(conditions));
             }),
         ValueListenableBuilder(
             valueListenable: tracksNotifier,
             builder: (BuildContext context, String track, Widget? child) {
-              return Text('Track: ' + track);
+              return Text('Track: ' + getTrackNameFromId(track));
             }),
         ValueListenableBuilder(
             valueListenable: classNotifier,

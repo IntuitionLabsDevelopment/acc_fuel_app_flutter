@@ -7,29 +7,33 @@ const androidProVersion =
 const iosProVersion =
     'https://apps.apple.com/us/app/acc-fuel-calculator-pro/id1541953578';
 
-const List<String> trackConditions = ['Dry', 'Wet'];
+const Map<String, String> trackConditions = {
+  '0': 'Dry',
+  '1': 'Damp',
+  '2': 'Wet',
+};
 
-const List<String> tracks = [
-  'Barcelona',
-  'Brands Hatch',
-  'Donington',
-  'Hungaroring',
-  'Imola',
-  'Kyalami',
-  'Laguna Seca',
-  'Misano',
-  'Monza',
-  'Mount Panorama',
-  'Nurburgring',
-  'Oulton Park',
-  'Paul Ricard',
-  'Silverstone',
-  'Snetterton',
-  'Spa-Francorchamps',
-  'Suzuka',
-  'Zandvoort',
-  'Zolder'
-];
+const Map<String, String> tracks = {
+  '0': 'Barcelona',
+  '1': 'Brands Hatch',
+  '2': 'Donington',
+  '3': 'Hungaroring',
+  '4': 'Imola',
+  '5': 'Kyalami',
+  '6': 'Laguna Seca',
+  '7': 'Misano',
+  '8': 'Monza',
+  '9': 'Mount Panorama',
+  '10': 'Nurburgring',
+  '11': 'Oulton Park',
+  '12': 'Paul Ricard',
+  '13': 'Silverstone',
+  '14': 'Snetterton',
+  '15': 'Spa-Francorchamps',
+  '16': 'Suzuka',
+  '17': 'Zandvoort',
+  '18': 'Zolder',
+};
 
 const Map<String, String> legacyCars = {
   '0': 'Porsche 991 GT3 R',
@@ -91,7 +95,7 @@ const Map<String, String> cars = {
   '15': 'Lexus RC F GT3',
   '16': 'Lamborghini Huracan Evo (2019)',
   '17': 'Honda NSX GT3',
-  '18': 'Lamborghini Huracan SuperTrofeo',
+  '18': 'Lamborghini Huracan ST',
   '19': 'Audi R8 LMS Evo (2019)',
   '20': 'AMR V8 Vantage (2019)',
   '21': 'Honda NSX Evo (2019)',
@@ -146,7 +150,6 @@ const Map<String, List<String>> classes = {
     '51',
     '52',
     '53',
-    '54',
     '55',
     '56',
     '57',

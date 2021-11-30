@@ -27,9 +27,18 @@ String getCarNameFromId(String id) {
 }
 
 List<String> getCarsFromClass(String carClass) {
-  List<String>? cars = constants.classes[carClass];
+  Map<String, List<String>> classesMap = Map.of(constants.classes);
+  List<String>? cars = classesMap[carClass];
+
   if (cars == null) {
     throw Error();
   }
-  return cars;
+
+  Map<String, String> carsMap = constants.cars;
+  Map<String, String> filteredCars = Map.from(carsMap)
+    ..removeWhere((key, value) => !cars.contains(key));
+  /* SORT ALPHABETICALLY */
+  List<String> filteredAndSortedCarIds = List.from(filteredCars.keys)
+    ..sort((a, b) => getCarNameFromId(a).compareTo(getCarNameFromId(b)));
+  return filteredAndSortedCarIds;
 }

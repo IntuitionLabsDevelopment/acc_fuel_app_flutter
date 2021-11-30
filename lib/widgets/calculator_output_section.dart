@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 Widget calculatorOutputSection({required String title, required String value}) {
   return Column(
+    mainAxisSize: MainAxisSize.min,
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Text(
