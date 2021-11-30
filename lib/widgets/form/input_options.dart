@@ -37,6 +37,7 @@ Widget inputOptionsFields() {
               builder:
                   (BuildContext context, bool isUsingStint, Widget? child) {
                 return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text('By Laps'),
                     Switch(
