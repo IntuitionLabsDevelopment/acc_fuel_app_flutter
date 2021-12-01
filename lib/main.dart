@@ -14,7 +14,60 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:acc_fuel_app_flutter/constants/app_constants.dart' as constants;
 
-void main() {
+Future<void> initCombos() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+
+  String? setTheme = prefs.getString('setTheme');
+  if (setTheme != null) {
+    updateTheme(setTheme);
+  }
+
+  String? setLocaleCode = prefs.getString('setLocaleCode');
+  if (setLocaleCode != null) {
+    updateLocale(setLocaleCode);
+  }
+
+  bool? setUsingLitres = prefs.getBool('setUsingLitres');
+  if (setUsingLitres != null) {
+    updateUsingLitres(setUsingLitres);
+  }
+
+  bool? setFormationLap = prefs.getBool('setFormationLap');
+  if (setFormationLap != null) {
+    updateFormationLap(setFormationLap);
+  }
+
+  bool? setUsingStint = prefs.getBool('setUsingStint');
+  if (setUsingStint != null) {
+    updateUsingStint(setUsingStint);
+  }
+
+  String? setConditions = prefs.getString('setConditions');
+  if (setConditions != null) {
+    updateConditions(setConditions);
+  }
+
+  String? setTrack = prefs.getString('setTrack');
+  if (setTrack != null) {
+    updateTracks(setTrack);
+  }
+
+  String? setClass = prefs.getString('setClass');
+  if (setClass != null) {
+    updateClass(setClass);
+  } else {
+    updateClass('GT3');
+  }
+
+  String? setCar = prefs.getString('setCar');
+  if (setCar != null) {
+    updateCar(setCar);
+  }
+}
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initCombos();
   runApp(const MyApp());
 }
 
@@ -59,64 +112,12 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     _checkMigrated();
-    _initCombos();
   }
 
   _checkMigrated() async {
     bool migrated = await checkForMigration();
     if (migrated) {
       migrationDialog(context);
-    }
-  }
-
-  _initCombos() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    String? setTheme = prefs.getString('setTheme');
-    if (setTheme != null) {
-      updateTheme(setTheme);
-    }
-
-    String? setLocaleCode = prefs.getString('setLocaleCode');
-    if (setLocaleCode != null) {
-      updateLocale(setLocaleCode);
-    }
-
-    bool? setUsingLitres = prefs.getBool('setUsingLitres');
-    if (setUsingLitres != null) {
-      updateUsingLitres(setUsingLitres);
-    }
-
-    bool? setFormationLap = prefs.getBool('setFormationLap');
-    if (setFormationLap != null) {
-      updateFormationLap(setFormationLap);
-    }
-
-    bool? setUsingStint = prefs.getBool('setUsingStint');
-    if (setUsingStint != null) {
-      updateUsingStint(setUsingStint);
-    }
-
-    String? setConditions = prefs.getString('setConditions');
-    if (setConditions != null) {
-      updateConditions(setConditions);
-    }
-
-    String? setTrack = prefs.getString('setTrack');
-    if (setTrack != null) {
-      updateTracks(setTrack);
-    }
-
-    String? setClass = prefs.getString('setClass');
-    if (setClass != null) {
-      updateClass(setClass);
-    } else {
-      updateClass('GT3');
-    }
-
-    String? setCar = prefs.getString('setCar');
-    if (setCar != null) {
-      updateCar(setCar);
     }
   }
 
