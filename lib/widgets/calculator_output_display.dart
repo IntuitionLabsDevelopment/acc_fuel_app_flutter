@@ -32,7 +32,8 @@ Widget calculatorOutputDisplay(BuildContext context) {
                             return Expanded(
                                 child: calculatorOutputSection(
                               title: AppLocalizations.of(context)!.risky,
-                              value: riskyFuel.toString() + units['short']!,
+                              value:
+                                  "${riskyFuel.toString()}${units['short']!}",
                             ));
                           });
                     }),
@@ -54,7 +55,7 @@ Widget calculatorOutputDisplay(BuildContext context) {
                             return Expanded(
                                 child: calculatorOutputSection(
                               title: AppLocalizations.of(context)!.safe,
-                              value: safeFuel.toString() + units['short']!,
+                              value: "${safeFuel.toString()}${units['short']!}",
                             ));
                           });
                     }),

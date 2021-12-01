@@ -77,29 +77,26 @@ Widget calculatorSelectionsSection(BuildContext context) {
         ValueListenableBuilder(
             valueListenable: conditionsNotifier,
             builder: (BuildContext context, String conditions, Widget? child) {
-              return Text(AppLocalizations.of(context)!.conditions +
-                  ': ' +
-                  getConditionsNameFromId(context, conditions));
+              return Text(
+                  "${AppLocalizations.of(context)!.conditions}: ${getConditionsNameFromId(context, conditions)}");
             }),
         ValueListenableBuilder(
             valueListenable: tracksNotifier,
             builder: (BuildContext context, String track, Widget? child) {
-              return Text(AppLocalizations.of(context)!.track +
-                  ': ' +
-                  getTrackNameFromId(track));
+              return Text(
+                  "${AppLocalizations.of(context)!.track}: ${getTrackNameFromId(track)}");
             }),
         ValueListenableBuilder(
             valueListenable: classNotifier,
             builder: (BuildContext context, String carClass, Widget? child) {
               return Text(
-                  AppLocalizations.of(context)!.carClass + ': ' + carClass);
+                  "${AppLocalizations.of(context)!.carClass}: $carClass");
             }),
         ValueListenableBuilder(
             valueListenable: carNotifier,
             builder: (BuildContext context, String car, Widget? child) {
-              return Text(AppLocalizations.of(context)!.car +
-                  ': ' +
-                  getCarNameFromId(car));
+              return Text(
+                  "${AppLocalizations.of(context)!.car}: ${getCarNameFromId(car)}");
             }),
       ],
     ),

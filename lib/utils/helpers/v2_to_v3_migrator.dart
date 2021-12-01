@@ -34,7 +34,7 @@ Future<void> migrateUserDataToV3() async {
       String trimmedCar = activeCar.replaceAll(' ', '');
       String trackId = getTrackIdFromName(activeTrack);
       String carId = getCarIdFromLegacyName(activeCar);
-      String legacyKey = trimmedTrack + trimmedCar;
+      String legacyKey = "$trimmedTrack$trimmedCar";
 
       List<String>? dryData = prefs.getStringList(legacyKey);
       if (dryData != null) {
@@ -49,13 +49,13 @@ Future<void> migrateUserDataToV3() async {
             0,
           );
 
-          /* prefs.remove(legacyKey); */
+          prefs.remove(legacyKey);
         } catch (e) {
           print(e.toString());
         }
       }
 
-      List<String>? wetData = prefs.getStringList(legacyKey + 'Wet');
+      List<String>? wetData = prefs.getStringList("${legacyKey}Wet");
       if (wetData != null) {
         try {
           saveCalcInputs(
@@ -68,7 +68,7 @@ Future<void> migrateUserDataToV3() async {
             0,
           );
 
-          /* prefs.remove(legacyKey + 'Wet'); */
+          prefs.remove("${legacyKey}Wet");
         } catch (e) {
           print(e.toString());
         }

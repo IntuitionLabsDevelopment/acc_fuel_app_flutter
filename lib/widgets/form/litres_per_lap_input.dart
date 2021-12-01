@@ -12,11 +12,7 @@ Widget litresPerLapField() {
       builder:
           (BuildContext context, Map<String, String> units, Widget? child) {
         return fieldsSection(
-            units['long']! == "gallons"
-                ? AppLocalizations.of(context)!.gallons
-                : AppLocalizations.of(context)!.litres +
-                    ' ' +
-                    AppLocalizations.of(context)!.perLap,
+            "${units['long']! == 'gallons' ? AppLocalizations.of(context)!.gallons : AppLocalizations.of(context)!.litres} ${AppLocalizations.of(context)!.perLap}",
             [
               Expanded(
                   child: doubleFieldInput(
