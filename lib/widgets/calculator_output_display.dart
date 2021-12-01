@@ -9,8 +9,8 @@ Widget calculatorOutputDisplay(BuildContext context) {
   return ValueListenableBuilder(
       valueListenable: usingStintNotifier,
       builder: (BuildContext context, bool usingStint, Widget? child) {
-        return ConstrainedBox(
-          constraints: const BoxConstraints(maxHeight: 70),
+        return LimitedBox(
+          maxHeight: 70,
           child: Container(
             decoration: BoxDecoration(
                 border: Border.all(
