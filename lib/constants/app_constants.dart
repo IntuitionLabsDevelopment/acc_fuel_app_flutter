@@ -3,7 +3,7 @@ const String thankYouForInstalling =
 
 const githubRepo = 'https://github.com/jakecoombs/acc_fuel_app_flutter';
 const suggestionLink = 'https://forms.gle/3b75dArtWMBtt3PT7';
-const translationLink = 'https://forms.gle/KMz4BbkR4GPqc9QMA';
+const translationLink = 'https://forms.gle/Mmjq215Eapdg4YmM7';
 const androidProVersion =
     'https://play.google.com/store/apps/details?id=com.accfuelcalcpro.accfuelcalculator';
 const iosProVersion =

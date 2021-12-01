@@ -9,6 +9,7 @@ import 'package:acc_fuel_app_flutter/widgets/buttons/purchase_pro_version.dart';
 import 'package:acc_fuel_app_flutter/widgets/selections_section.dart';
 import 'package:flutter/material.dart';
 import 'package:acc_fuel_app_flutter/constants/app_constants.dart' as constants;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void migrationDialog(BuildContext context) async {
   showDialog(
@@ -36,7 +37,7 @@ void calculatorOptionsDialog(BuildContext context) async {
   showDialog(
     context: context,
     builder: (context) => AlertDialog(
-      title: const Text('Select Save Combination'),
+      title: Text(AppLocalizations.of(context)!.selectCombo),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -46,10 +47,11 @@ void calculatorOptionsDialog(BuildContext context) async {
                   (BuildContext context, String conditions, Widget? child) {
                 return dropdownButton(
                     value: conditions,
-                    title: 'Conditions',
+                    title: AppLocalizations.of(context)!.conditions,
                     options: constants.trackConditions.keys.toList(),
                     optionMapper: (dynamic conditionsId) {
-                      return Text(getConditionsNameFromId(conditionsId));
+                      return Text(
+                          getConditionsNameFromId(context, conditionsId));
                     },
                     onChanged: (dynamic value) {
                       updateConditions(value);
@@ -60,7 +62,7 @@ void calculatorOptionsDialog(BuildContext context) async {
               builder: (BuildContext context, String track, Widget? child) {
                 return dropdownButton(
                     value: track,
-                    title: 'Track',
+                    title: AppLocalizations.of(context)!.track,
                     options: constants.tracks.keys.toList(),
                     optionMapper: (dynamic trackId) {
                       return Text(getTrackNameFromId(trackId));
@@ -74,7 +76,7 @@ void calculatorOptionsDialog(BuildContext context) async {
               builder: (BuildContext context, String carClass, Widget? child) {
                 return dropdownButton(
                     value: carClass,
-                    title: 'Class',
+                    title: AppLocalizations.of(context)!.carClass,
                     options: constants.classes.keys.toList(),
                     onChanged: (dynamic value) {
                       updateClass(value);
@@ -89,7 +91,7 @@ void calculatorOptionsDialog(BuildContext context) async {
                     builder: (BuildContext context, String car, Widget? child) {
                       return dropdownButton(
                           value: car,
-                          title: 'Car',
+                          title: AppLocalizations.of(context)!.car,
                           options: options,
                           optionMapper: (dynamic carId) {
                             return Text(getCarNameFromId(carId));
@@ -106,7 +108,7 @@ void calculatorOptionsDialog(BuildContext context) async {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: const Text('Select Combination'))
+            child: Text(AppLocalizations.of(context)!.selectCombo))
       ],
     ),
   );

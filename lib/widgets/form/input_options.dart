@@ -1,6 +1,7 @@
 import 'package:acc_fuel_app_flutter/widgets/form/fields_section.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 ValueNotifier<bool> usingStintNotifier = ValueNotifier(true);
 ValueNotifier<bool> formationLapNotifier = ValueNotifier(false);
@@ -17,9 +18,9 @@ void updateFormationLap(bool newValue) async {
   prefs.setBool('setFormationLap', newValue);
 }
 
-Widget inputOptionsFields() {
+Widget inputOptionsFields(BuildContext context) {
   return fieldsSection(
-    'Options',
+    AppLocalizations.of(context)!.options,
     [
       Expanded(
           child: ValueListenableBuilder(
@@ -27,8 +28,8 @@ Widget inputOptionsFields() {
               builder:
                   (BuildContext context, bool formationLap, Widget? child) {
                 return CheckboxListTile(
-                  title: const Text(
-                    'Formation Lap',
+                  title: Text(
+                    AppLocalizations.of(context)!.formationLap,
                   ),
                   value: formationLap,
                   onChanged: (bool? value) {
@@ -44,14 +45,14 @@ Widget inputOptionsFields() {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('By Laps'),
+                    Text(AppLocalizations.of(context)!.byLaps),
                     Switch(
                       value: isUsingStint,
                       onChanged: (bool value) {
                         updateUsingStint(value);
                       },
                     ),
-                    const Text('By Stint'),
+                    Text(AppLocalizations.of(context)!.byStint),
                   ],
                 );
               })),

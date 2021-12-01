@@ -1,6 +1,7 @@
 import 'package:acc_fuel_app_flutter/widgets/form/fields_section.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 ValueNotifier<bool> usingLitresNotifier = ValueNotifier(true);
 ValueNotifier<Map<String, String>> unitNotifier =
@@ -12,15 +13,15 @@ void updateUsingLitres(bool newValue) async {
   prefs.setBool('setUsingLitres', newValue);
 
   if (newValue) {
-    unitNotifier.value = {'short': 'L', 'long': 'Litres'};
+    unitNotifier.value = {'short': 'L', 'long': 'litres'};
   } else {
-    unitNotifier.value = {'short': 'G', 'long': 'Gallons'};
+    unitNotifier.value = {'short': 'G', 'long': 'gallons'};
   }
 }
 
-Widget unitSwitch() {
+Widget unitSwitch(BuildContext context) {
   return fieldsSection(
-    'Units',
+    AppLocalizations.of(context)!.units,
     [
       Expanded(
           child: ValueListenableBuilder(
@@ -30,14 +31,14 @@ Widget unitSwitch() {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Gallons'),
+                    Text(AppLocalizations.of(context)!.gallons),
                     Switch(
                       value: isUsingLitres,
                       onChanged: (bool value) {
                         updateUsingLitres(value);
                       },
                     ),
-                    const Text('Litres'),
+                    Text(AppLocalizations.of(context)!.litres),
                   ],
                 );
               })),

@@ -8,6 +8,7 @@ import 'package:acc_fuel_app_flutter/widgets/form/lap_time_input.dart';
 import 'package:acc_fuel_app_flutter/widgets/form/litres_per_lap_input.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 ValueNotifier<String> conditionsNotifier = ValueNotifier('0');
 ValueNotifier<String> tracksNotifier = ValueNotifier('0');
@@ -70,28 +71,35 @@ Widget calculatorSelectionsSection(BuildContext context) {
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        selectionsButton(onPressed: () {
+        selectionsButton(context, onPressed: () {
           calculatorOptionsDialog(context);
         }),
         ValueListenableBuilder(
             valueListenable: conditionsNotifier,
             builder: (BuildContext context, String conditions, Widget? child) {
-              return Text('Conditions: ' + getConditionsNameFromId(conditions));
+              return Text(AppLocalizations.of(context)!.conditions +
+                  ': ' +
+                  getConditionsNameFromId(context, conditions));
             }),
         ValueListenableBuilder(
             valueListenable: tracksNotifier,
             builder: (BuildContext context, String track, Widget? child) {
-              return Text('Track: ' + getTrackNameFromId(track));
+              return Text(AppLocalizations.of(context)!.track +
+                  ': ' +
+                  getTrackNameFromId(track));
             }),
         ValueListenableBuilder(
             valueListenable: classNotifier,
             builder: (BuildContext context, String carClass, Widget? child) {
-              return Text('Class: ' + carClass);
+              return Text(
+                  AppLocalizations.of(context)!.carClass + ': ' + carClass);
             }),
         ValueListenableBuilder(
             valueListenable: carNotifier,
             builder: (BuildContext context, String car, Widget? child) {
-              return Text('Car: ' + getCarNameFromId(car));
+              return Text(AppLocalizations.of(context)!.car +
+                  ': ' +
+                  getCarNameFromId(car));
             }),
       ],
     ),

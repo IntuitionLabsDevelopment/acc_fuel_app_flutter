@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-Widget calculateButton({
-  Key? key,
+Widget calculateButton(
+  BuildContext context, {
   required VoidCallback? onPressed,
 }) {
   return ElevatedButton.icon(
-    key: key,
     onPressed: onPressed,
     icon: const Icon(Icons.calculate),
-    label: const Text('Calculate'),
+    label: Text(AppLocalizations.of(context)!.calculate),
   );
 }

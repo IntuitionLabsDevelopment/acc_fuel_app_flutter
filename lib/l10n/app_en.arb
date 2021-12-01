@@ -12,8 +12,8 @@
   "estLaps": "Estimated Laps",
   "gallons": "Gallons",
   "litres": "Litres",
-  "riskyFuel": "Risky Fuel",
-  "safeFuel": "Safe Fuel",
+  "risky": "Risky",
+  "safe": "Safe",
   "car": "Car",
   "carClass": "Class",
   "conditions": "Conditions",
@@ -25,5 +25,8 @@
   "leaveReview": "Leave a Review",
   "sendSuggestion": "Send a Suggestion",
   "thankYou": "Thank You",
-  "units": "Units"
+  "units": "Units",
+  "dry": "Dry",
+  "damp": "Damp",
+  "wet": "Wet"
 }

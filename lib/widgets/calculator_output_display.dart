@@ -31,7 +31,7 @@ Widget calculatorOutputDisplay(BuildContext context) {
                               Map<String, String> units, Widget? child) {
                             return Expanded(
                                 child: calculatorOutputSection(
-                              title: AppLocalizations.of(context)!.riskyFuel,
+                              title: AppLocalizations.of(context)!.risky,
                               value: riskyFuel.toString() + units['short']!,
                             ));
                           });
@@ -53,7 +53,7 @@ Widget calculatorOutputDisplay(BuildContext context) {
                               Map<String, String> units, Widget? child) {
                             return Expanded(
                                 child: calculatorOutputSection(
-                              title: AppLocalizations.of(context)!.safeFuel,
+                              title: AppLocalizations.of(context)!.safe,
                               value: safeFuel.toString() + units['short']!,
                             ));
                           });

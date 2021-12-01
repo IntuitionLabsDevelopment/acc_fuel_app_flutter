@@ -30,7 +30,7 @@ class CalculatorFormState extends State<CalculatorForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          inputOptionsFields(),
+          inputOptionsFields(context),
           ValueListenableBuilder(
               valueListenable: usingStintNotifier,
               builder:
@@ -63,7 +63,7 @@ class CalculatorFormState extends State<CalculatorForm> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              saveButton(onPressed: () {
+              saveButton(context, onPressed: () {
                 if (litresInput.text != '') {
                   saveCalcInputs(
                       tracksNotifier.value,
@@ -76,6 +76,7 @@ class CalculatorFormState extends State<CalculatorForm> {
                 }
               }),
               calculateButton(
+                context,
                 onPressed: () {
                   // Validate returns true if the form is valid, or false otherwise.
                   if (_calculatorFormKey.currentState!.validate()) {

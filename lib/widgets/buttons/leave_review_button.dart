@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:in_app_review/in_app_review.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 Future<bool> isReviewAvailable() async {
   final InAppReview inAppReview = InAppReview.instance;
@@ -28,7 +29,7 @@ Widget leaveReviewButton(BuildContext context, {bool fullWidth = false}) {
                 Navigator.of(context).pop();
                 inAppReview.openStoreListing(appStoreId: '1540153714');
               },
-              label: const Text('Leave a review')),
+              label: Text(AppLocalizations.of(context)!.leaveReview)),
         );
       }
       return child;

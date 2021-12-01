@@ -10,6 +10,7 @@ import 'package:acc_fuel_app_flutter/widgets/language_dropdown.dart';
 import 'package:acc_fuel_app_flutter/widgets/unit_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 Widget spacer() {
   return const SizedBox(
@@ -24,7 +25,7 @@ Widget settingsScreen(BuildContext context) {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          unitSwitch(),
+          unitSwitch(context),
           spacer(),
           languageDropdown(),
           submitTranslationButton(),
@@ -39,14 +40,14 @@ Widget settingsScreen(BuildContext context) {
           spacer(),
           purchaseProButton(context),
           spacer(),
-          clearDataButton(),
+          clearDataButton(context),
           spacer(),
           ElevatedButton.icon(
               icon: const FaIcon(FontAwesomeIcons.heart),
               onPressed: () {
                 migrationDialog(context);
               },
-              label: const Text('Thank you'))
+              label: Text(AppLocalizations.of(context)!.thankYou))
         ],
       ),
     ),

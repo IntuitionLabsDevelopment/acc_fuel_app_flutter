@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-Widget saveButton({
-  Key? key,
+Widget saveButton(
+  BuildContext context, {
   required VoidCallback? onPressed,
 }) {
   return ElevatedButton.icon(
-    key: key,
     onPressed: onPressed,
     icon: const Icon(Icons.save),
-    label: const Text('Save'),
+    label: Text(AppLocalizations.of(context)!.save),
   );
 }
