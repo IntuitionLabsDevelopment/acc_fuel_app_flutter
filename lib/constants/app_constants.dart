@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 const String thankYouForInstalling =
     'I am Jake, a University Student studying Computer Science, this has been one of my personal projects to get started in app development. I never expected it to have around 5000 users! This is the 3rd time I have reworked the app, I hope you enjoy the improvements, and I am excited for future planned changes. One change that I can share is that in the near future the app will be able to save your data to the cloud, allowing your data to be saved and used across devices, as well as be synced with the web version for PC when it is released! The source code for this app is now public and the link can be found in the settings. I want to add a special thank you to those all over the world who have submitted translations for this app! Finally, if you find this app useful, it would mean a lot if you could leave a review! Once again, thank you!';
 
@@ -8,6 +10,12 @@ const androidProVersion =
     'https://play.google.com/store/apps/details?id=com.accfuelcalcpro.accfuelcalculator';
 const iosProVersion =
     'https://apps.apple.com/us/app/acc-fuel-calculator-pro/id1541953578';
+
+const Map<String, ThemeMode> themes = {
+  'light': ThemeMode.light,
+  'dark': ThemeMode.dark,
+  'system': ThemeMode.system
+};
 
 const Map<String, String> supportedLocales = {'en': 'English', 'es': 'Spanish'};
 

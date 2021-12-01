@@ -2,7 +2,7 @@ import 'package:acc_fuel_app_flutter/utils/ui/app_dialogs.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/clear_data_button.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/github_button.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/leave_review_button.dart';
-import 'package:acc_fuel_app_flutter/widgets/buttons/looking_for_themes_button.dart';
+import 'package:acc_fuel_app_flutter/widgets/theme_options_dropdown.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/purchase_pro_version.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/submit_translation_button.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/suggestion_button.dart';
@@ -27,10 +27,10 @@ Widget settingsScreen(BuildContext context) {
         children: [
           unitSwitch(context),
           spacer(),
+          themeOptions(),
+          spacer(),
           languageDropdown(),
           submitTranslationButton(),
-          spacer(),
-          lookingForThemesButton(context),
           spacer(),
           leaveReviewButton(context),
           spacer(),

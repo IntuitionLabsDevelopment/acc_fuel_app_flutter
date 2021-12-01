@@ -6,11 +6,13 @@ import 'package:acc_fuel_app_flutter/utils/ui/app_dialogs.dart';
 import 'package:acc_fuel_app_flutter/widgets/form/input_options.dart';
 import 'package:acc_fuel_app_flutter/widgets/language_dropdown.dart';
 import 'package:acc_fuel_app_flutter/widgets/selections_section.dart';
+import 'package:acc_fuel_app_flutter/widgets/theme_options_dropdown.dart';
 import 'package:acc_fuel_app_flutter/widgets/unit_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:acc_fuel_app_flutter/utils/helpers/v2_to_v3_migrator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:acc_fuel_app_flutter/constants/app_constants.dart' as constants;
 
 void main() {
   runApp(const MyApp());
@@ -25,15 +27,21 @@ class MyApp extends StatelessWidget {
     return ValueListenableBuilder(
         valueListenable: localeNotifier,
         builder: (BuildContext context, Locale locale, Widget? child) {
-          return MaterialApp(
-            title: 'ACC Fuel Calculator',
-            theme: lightTheme,
-            home: const MyHomePage(title: 'ACC Fuel Calculator'),
-            darkTheme: darkTheme,
-            locale: locale,
-            supportedLocales: AppLocalizations.supportedLocales,
-            localizationsDelegates: AppLocalizations.localizationsDelegates,
-          );
+          return ValueListenableBuilder(
+              valueListenable: themeModeNotifier,
+              builder: (BuildContext context, String themeMode, Widget? child) {
+                return MaterialApp(
+                  title: 'ACC Fuel Calculator',
+                  home: const MyHomePage(title: 'ACC Fuel Calculator'),
+                  themeMode: constants.themes[themeMode],
+                  theme: lightTheme,
+                  darkTheme: darkTheme,
+                  locale: locale,
+                  supportedLocales: AppLocalizations.supportedLocales,
+                  localizationsDelegates:
+                      AppLocalizations.localizationsDelegates,
+                );
+              });
         });
   }
 }
@@ -63,6 +71,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   _initCombos() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    String? setTheme = prefs.getString('setTheme');
+    if (setTheme != null) {
+      updateTheme(setTheme);
+    }
 
     String? setLocaleCode = prefs.getString('setLocaleCode');
     if (setLocaleCode != null) {

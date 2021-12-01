@@ -28,5 +28,9 @@
   "units": "Units",
   "dry": "Dry",
   "damp": "Damp",
-  "wet": "Wet"
+  "wet": "Wet",
+  "themeOptions": "Theme Options",
+  "light": "Light",
+  "dark": "Dark",
+  "system": "System"
 }
