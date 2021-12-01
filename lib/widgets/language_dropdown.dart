@@ -18,15 +18,18 @@ Widget languageDropdown() {
   return ValueListenableBuilder(
       valueListenable: localeNotifier,
       builder: (BuildContext context, Locale locale, Widget? child) {
-        return dropdownButton(
-            value: locale.languageCode,
-            title: AppLocalizations.of(context)!.language,
-            options: constants.supportedLocales.keys.toList(),
-            optionMapper: (dynamic languageCode) {
-              return Text(constants.supportedLocales[languageCode]!);
-            },
-            onChanged: (dynamic value) {
-              updateLocale(value);
-            });
+        return Container(
+          constraints: const BoxConstraints(maxWidth: 200),
+          child: dropdownButton(
+              value: locale.languageCode,
+              title: AppLocalizations.of(context)!.language,
+              options: constants.supportedLocales.keys.toList(),
+              optionMapper: (dynamic languageCode) {
+                return Text(constants.supportedLocales[languageCode]!);
+              },
+              onChanged: (dynamic value) {
+                updateLocale(value);
+              }),
+        );
       });
 }
