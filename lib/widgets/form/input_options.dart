@@ -45,14 +45,24 @@ Widget inputOptionsFields(BuildContext context) {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(AppLocalizations.of(context)!.byLaps),
-                    Switch(
-                      value: isUsingStint,
-                      onChanged: (bool value) {
-                        updateUsingStint(value);
-                      },
+                    Expanded(
+                        child: Text(
+                      AppLocalizations.of(context)!.byLaps,
+                      textAlign: TextAlign.center,
+                    )),
+                    Expanded(
+                      child: Switch(
+                        value: isUsingStint,
+                        onChanged: (bool value) {
+                          updateUsingStint(value);
+                        },
+                      ),
                     ),
-                    Text(AppLocalizations.of(context)!.byStint),
+                    Expanded(
+                        child: Text(
+                      AppLocalizations.of(context)!.byStint,
+                      textAlign: TextAlign.center,
+                    )),
                   ],
                 );
               })),

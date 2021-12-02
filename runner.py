@@ -12,8 +12,8 @@ obj = {
     "estLaps": "Estimated Laps",
     "gallons": "Gallons",
     "litres": "Litres",
-    "riskyFuel": "Risky Fuel",
-    "safeFuel": "Safe Fuel",
+    "risky": "Risky",
+    "safe": "Safe",
     "car": "Car",
     "carClass": "Class",
     "conditions": "Conditions",
@@ -25,8 +25,57 @@ obj = {
     "leaveReview": "Leave a Review",
     "sendSuggestion": "Send a Suggestion",
     "thankYou": "Thank You",
-    "units": "Units"
+    "units": "Units",
+    "dry": "Dry",
+    "damp": "Damp",
+    "wet": "Wet",
+    "themeOptions": "Theme Options",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
 }
 
+
+translated = {
+    'By Laps':	'Etter runder',
+    'By Stint':	'Etter stint',
+    'Calculate': 'Beregn',
+    'Formation Lap': 'Formasjonsrunde',
+    'Lap Time': 'Rundetid',
+    'Laps': 'Runder',
+    'Options': 'Alternativer',
+    'Per Lap': 'Per runde',
+    'Save': 'Lagre',
+    'Stint/Race Length': 'Stint/løpslengde',
+    'Estimated Laps': 'Antatt runder',
+    'Gallons': 'Gallons',
+    'Litres': 'Liter',
+    'Risky': 'Risikabelt',
+    'Safe': 'Trygg',
+    'Car': 'Bil',
+    'Class': 'Klasse',
+    'Conditions': 'Forhold',
+    'Select Combination': 'Velg kombinasjon',
+    'Selections': 'Valg',
+    'Track': 'Bane',
+    'Clear Data': 'Fjern data',
+    'Language': 'Språk',
+    'Leave a Review': 'Legg igjen en anmeldelse',
+    'Send a Suggestion': 'Send et forslag',
+    'Thank You': 'Tusen takk',
+    'Units': 'Enheter',
+    'Dry': 'Tørr',
+    'Damp': 'Fuktig',
+    'Wet': 'Vått',
+    'Theme Options': 'Temavalg',
+    'Light': 'Lys',
+    'Dark': 'Mørk',
+    'System': 'System',
+}
+
+print("{")
 for i in obj:
-    print(obj[i])
+    if obj[i] in translated and translated[obj[i]] != '':
+        print(f'"{i}": "{translated[obj[i]]}",')
+
+print("}")
