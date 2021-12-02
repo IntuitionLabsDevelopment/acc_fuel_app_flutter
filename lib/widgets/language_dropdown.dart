@@ -10,10 +10,20 @@ import 'package:shared_preferences/shared_preferences.dart';
 ValueNotifier<Locale> localeNotifier = ValueNotifier(const Locale('en'));
 
 void updateLocale(String value) async {
-  localeNotifier.value = Locale(value);
+  List<String> splitValue = value.split('-');
+  Locale toSave =
+      Locale(splitValue[0], splitValue.length > 1 ? splitValue[1] : '');
+  localeNotifier.value = toSave;
   SharedPreferences prefs = await SharedPreferences.getInstance();
   prefs.setString('setLocaleCode', value);
-  Get.updateLocale(Locale(value));
+  Get.updateLocale(toSave);
+}
+
+List<String> getSortedLanguageOptions() {
+  List<String> languages =
+      AppLocalizations.supportedLocales.map((e) => e.toLanguageTag()).toList();
+  languages.sort((a, b) => a.compareTo(b));
+  return languages;
 }
 
 Widget languageDropdown() {
@@ -23,14 +33,13 @@ Widget languageDropdown() {
         return Container(
           constraints: const BoxConstraints(maxWidth: 200),
           child: dropdownButton(
-              value: locale.languageCode,
+              value: locale.toLanguageTag(),
               title: AppLocalizations.of(context)!.language,
-              options: AppLocalizations.supportedLocales
-                  .map((e) => e.toLanguageTag())
-                  .toList(),
+              options: getSortedLanguageOptions(),
               optionMapper: (dynamic languageCode) {
+                String code = languageCode as String;
                 return Text(LocaleNamesLocalizationsDelegate
-                    .nativeLocaleNames[languageCode]!);
+                    .nativeLocaleNames[code.replaceAll('-', '_')]!);
               },
               onChanged: (dynamic value) {
                 updateLocale(value);

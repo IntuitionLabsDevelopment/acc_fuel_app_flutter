@@ -1,0 +1,16 @@
+{
+	"@@locale": "pt_BR",
+	"calculate": "Calcular",
+	"formationLap": "Volta de apresentação",
+	"lapTime": "Tempo de Volta",
+	"save": "Salvar",
+	"stintLength": "Distância do stint",
+	"risky": "Combustível Mínimo",
+	"safe": "Combustível Seguro",
+	"language": "Idioma",
+	"themeOptions": "Configurações de Tema",
+	"error": "Erro",
+	"dry": "Seco",
+	"sendSuggestion": "Envie uma sugestão",
+	"wet": "Molhado"
+}

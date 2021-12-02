@@ -1,0 +1,12 @@
+{
+	"calculate": "Calcular",
+	"formationLap": "Vuelta de formación",
+	"lapTime": "Tiempo de la vuelta",
+	"save": "Guardar",
+	"stintLength": "Duración de la sesión ",
+	"risky": "Calculo de combustible arriesgado",
+	"safe": "Calculo de combustible seguro",
+	"language": "Idioma",
+	"themeOptions": "Configuración del tema",
+	"error": "Error"
+}
