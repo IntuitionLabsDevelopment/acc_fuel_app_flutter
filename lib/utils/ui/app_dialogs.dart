@@ -38,70 +38,76 @@ void calculatorOptionsDialog(BuildContext context) async {
     context: context,
     builder: (context) => AlertDialog(
       title: Text(AppLocalizations.of(context)!.selectCombo),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ValueListenableBuilder(
-              valueListenable: conditionsNotifier,
-              builder:
-                  (BuildContext context, String conditions, Widget? child) {
-                return dropdownButton(
-                    value: conditions,
-                    title: AppLocalizations.of(context)!.conditions,
-                    options: constants.trackConditions.keys.toList(),
-                    optionMapper: (dynamic conditionsId) {
-                      return Text(
-                          getConditionsNameFromId(context, conditionsId));
-                    },
-                    onChanged: (dynamic value) {
-                      updateConditions(value);
-                    });
-              }),
-          ValueListenableBuilder(
-              valueListenable: tracksNotifier,
-              builder: (BuildContext context, String track, Widget? child) {
-                return dropdownButton(
-                    value: track,
-                    title: AppLocalizations.of(context)!.track,
-                    options: constants.tracks.keys.toList(),
-                    optionMapper: (dynamic trackId) {
-                      return Text(getTrackNameFromId(trackId));
-                    },
-                    onChanged: (dynamic value) {
-                      updateTracks(value);
-                    });
-              }),
-          ValueListenableBuilder(
-              valueListenable: classNotifier,
-              builder: (BuildContext context, String carClass, Widget? child) {
-                return dropdownButton(
-                    value: carClass,
-                    title: AppLocalizations.of(context)!.carClass,
-                    options: constants.classes.keys.toList(),
-                    onChanged: (dynamic value) {
-                      updateClass(value);
-                    });
-              }),
-          ValueListenableBuilder(
-              valueListenable: carOptionsNotifier,
-              builder:
-                  (BuildContext context, List<String> options, Widget? child) {
-                return ValueListenableBuilder(
-                    valueListenable: carNotifier,
-                    builder: (BuildContext context, String car, Widget? child) {
-                      return dropdownButton(
-                          value: car,
-                          title: AppLocalizations.of(context)!.car,
-                          options: options,
-                          optionMapper: (dynamic carId) {
-                            return Text(getCarNameFromId(carId));
-                          },
-                          onChanged: (dynamic value) {
-                            updateCar(value);
-                          });
-                    });
-              }),
-        ],
+      content: Scrollbar(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ValueListenableBuilder(
+                  valueListenable: conditionsNotifier,
+                  builder:
+                      (BuildContext context, String conditions, Widget? child) {
+                    return dropdownButton(
+                        value: conditions,
+                        title: AppLocalizations.of(context)!.conditions,
+                        options: constants.trackConditions.keys.toList(),
+                        optionMapper: (dynamic conditionsId) {
+                          return Text(
+                              getConditionsNameFromId(context, conditionsId));
+                        },
+                        onChanged: (dynamic value) {
+                          updateConditions(value);
+                        });
+                  }),
+              ValueListenableBuilder(
+                  valueListenable: tracksNotifier,
+                  builder: (BuildContext context, String track, Widget? child) {
+                    return dropdownButton(
+                        value: track,
+                        title: AppLocalizations.of(context)!.track,
+                        options: constants.tracks.keys.toList(),
+                        optionMapper: (dynamic trackId) {
+                          return Text(getTrackNameFromId(trackId));
+                        },
+                        onChanged: (dynamic value) {
+                          updateTracks(value);
+                        });
+                  }),
+              ValueListenableBuilder(
+                  valueListenable: classNotifier,
+                  builder:
+                      (BuildContext context, String carClass, Widget? child) {
+                    return dropdownButton(
+                        value: carClass,
+                        title: AppLocalizations.of(context)!.carClass,
+                        options: constants.classes.keys.toList(),
+                        onChanged: (dynamic value) {
+                          updateClass(value);
+                        });
+                  }),
+              ValueListenableBuilder(
+                  valueListenable: carOptionsNotifier,
+                  builder: (BuildContext context, List<String> options,
+                      Widget? child) {
+                    return ValueListenableBuilder(
+                        valueListenable: carNotifier,
+                        builder:
+                            (BuildContext context, String car, Widget? child) {
+                          return dropdownButton(
+                              value: car,
+                              title: AppLocalizations.of(context)!.car,
+                              options: options,
+                              optionMapper: (dynamic carId) {
+                                return Text(getCarNameFromId(carId));
+                              },
+                              onChanged: (dynamic value) {
+                                updateCar(value);
+                              });
+                        });
+                  }),
+            ],
+          ),
+        ),
       ),
       actions: [
         fullWidthElevatedButton(
