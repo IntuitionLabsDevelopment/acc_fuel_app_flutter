@@ -1,4 +1,4 @@
-obj = {
+en = {
     "byLaps": "By Laps",
     "byStint": "By Stint",
     "calculate": "Calculate",
@@ -32,7 +32,9 @@ obj = {
     "themeOptions": "Theme Options",
     "light": "Light",
     "dark": "Dark",
-    "system": "System"
+    "system": "System",
+    "success": "Success",
+    "error": "Error"
 }
 
 
@@ -74,8 +76,8 @@ translated = {
 }
 
 print("{")
-for i in obj:
-    if obj[i] in translated and translated[obj[i]] != '':
-        print(f'"{i}": "{translated[obj[i]]}",')
+for i in en:
+    if en[i] in translated and translated[en[i]] != '':
+        print(f'"{i}": "{translated[en[i]]}",')
 
 print("}")
