@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:in_app_review/in_app_review.dart';
@@ -17,7 +19,7 @@ Widget leaveReviewButton(BuildContext context, {bool fullWidth = false}) {
       Widget child = const SizedBox.shrink();
       if (snapshot.hasData) {
         child = Visibility(
-          visible: snapshot.data as bool,
+          visible: snapshot.data as bool && Platform.isAndroid,
           child: ElevatedButton.icon(
               icon: const FaIcon(FontAwesomeIcons.starHalfAlt),
               style: fullWidth
@@ -27,7 +29,7 @@ Widget leaveReviewButton(BuildContext context, {bool fullWidth = false}) {
                   : null,
               onPressed: () async {
                 Navigator.of(context).pop();
-                inAppReview.openStoreListing(appStoreId: '1540153714');
+                inAppReview.openStoreListing();
               },
               label: Text(AppLocalizations.of(context)!.leaveReview)),
         );
