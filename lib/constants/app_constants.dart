@@ -17,8 +17,6 @@ const Map<String, ThemeMode> themes = {
   'system': ThemeMode.system
 };
 
-const Map<String, String> supportedLocales = {'en': 'English', 'no': 'Norsk'};
-
 const Map<String, String> trackConditions = {
   '0': 'Dry',
   '1': 'Damp',

@@ -91,8 +91,9 @@ class MyApp extends StatelessWidget {
                   darkTheme: darkTheme,
                   locale: locale,
                   supportedLocales: AppLocalizations.supportedLocales,
-                  localizationsDelegates:
-                      AppLocalizations.localizationsDelegates,
+                  localizationsDelegates: const [
+                    ...AppLocalizations.localizationsDelegates
+                  ],
                 );
               });
         });

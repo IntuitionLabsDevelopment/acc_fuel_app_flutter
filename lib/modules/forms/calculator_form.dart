@@ -10,7 +10,6 @@ import 'package:acc_fuel_app_flutter/widgets/selections_section.dart';
 import 'package:flutter/material.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/calculate_button.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/save_button.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 // Define a custom Form widget.
 class CalculatorForm extends StatefulWidget {

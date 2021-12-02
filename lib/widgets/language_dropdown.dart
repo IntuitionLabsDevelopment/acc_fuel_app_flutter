@@ -1,9 +1,11 @@
 import 'package:acc_fuel_app_flutter/widgets/buttons/dropdown_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:acc_fuel_app_flutter/constants/app_constants.dart' as constants;
+import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+/* https://api.flutter.dev/flutter/flutter_localizations/GlobalMaterialLocalizations-class.html */
 
 ValueNotifier<Locale> localeNotifier = ValueNotifier(const Locale('en'));
 
@@ -23,9 +25,12 @@ Widget languageDropdown() {
           child: dropdownButton(
               value: locale.languageCode,
               title: AppLocalizations.of(context)!.language,
-              options: constants.supportedLocales.keys.toList(),
+              options: AppLocalizations.supportedLocales
+                  .map((e) => e.toLanguageTag())
+                  .toList(),
               optionMapper: (dynamic languageCode) {
-                return Text(constants.supportedLocales[languageCode]!);
+                return Text(LocaleNamesLocalizationsDelegate
+                    .nativeLocaleNames[languageCode]!);
               },
               onChanged: (dynamic value) {
                 updateLocale(value);
