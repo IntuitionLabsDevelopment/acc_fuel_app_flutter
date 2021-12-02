@@ -5,12 +5,19 @@ import 'package:acc_fuel_app_flutter/widgets/unit_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+Widget outputDivider(BuildContext context) {
+  return Container(
+      width: 2,
+      decoration: BoxDecoration(
+        border: Border.all(width: 1, color: Theme.of(context).highlightColor),
+      ));
+}
+
 Widget calculatorOutputDisplay(BuildContext context) {
   return ValueListenableBuilder(
       valueListenable: usingStintNotifier,
       builder: (BuildContext context, bool usingStint, Widget? child) {
-        return LimitedBox(
-          maxHeight: 70,
+        return IntrinsicHeight(
           child: Container(
             decoration: BoxDecoration(
                 border: Border.all(
@@ -29,21 +36,14 @@ Widget calculatorOutputDisplay(BuildContext context) {
                           valueListenable: unitNotifier,
                           builder: (BuildContext context,
                               Map<String, String> units, Widget? child) {
-                            return Expanded(
-                                child: calculatorOutputSection(
+                            return calculatorOutputSection(
                               title: AppLocalizations.of(context)!.risky,
                               value:
                                   "${riskyFuel.toString()}${units['short']!}",
-                            ));
+                            );
                           });
                     }),
-                Container(
-                    width: 2,
-                    height: double.infinity,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                          width: 1, color: Theme.of(context).highlightColor),
-                    )),
+                outputDivider(context),
                 ValueListenableBuilder(
                     valueListenable: safeFuelNotifier,
                     builder:
@@ -52,22 +52,15 @@ Widget calculatorOutputDisplay(BuildContext context) {
                           valueListenable: unitNotifier,
                           builder: (BuildContext context,
                               Map<String, String> units, Widget? child) {
-                            return Expanded(
-                                child: calculatorOutputSection(
+                            return calculatorOutputSection(
                               title: AppLocalizations.of(context)!.safe,
                               value: "${safeFuel.toString()}${units['short']!}",
-                            ));
+                            );
                           });
                     }),
                 Visibility(
                   visible: usingStint,
-                  child: Container(
-                      width: 2,
-                      height: double.infinity,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                            width: 1, color: Theme.of(context).highlightColor),
-                      )),
+                  child: outputDivider(context),
                 ),
                 Visibility(
                   visible: usingStint,
@@ -75,11 +68,10 @@ Widget calculatorOutputDisplay(BuildContext context) {
                       valueListenable: estimatedLapsNotifier,
                       builder: (BuildContext context, int estimatedLaps,
                           Widget? child) {
-                        return Expanded(
-                            child: calculatorOutputSection(
+                        return calculatorOutputSection(
                           title: AppLocalizations.of(context)!.estLaps,
                           value: estimatedLaps.toString(),
-                        ));
+                        );
                       }),
                 ),
               ],
