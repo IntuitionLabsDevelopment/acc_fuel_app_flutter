@@ -84,6 +84,7 @@ class MyApp extends StatelessWidget {
               valueListenable: themeModeNotifier,
               builder: (BuildContext context, String themeMode, Widget? child) {
                 return MaterialApp(
+                  debugShowCheckedModeBanner: false,
                   title: 'ACC Fuel Calculator',
                   home: const MyHomePage(title: 'ACC Fuel Calculator'),
                   themeMode: constants.themes[themeMode],
