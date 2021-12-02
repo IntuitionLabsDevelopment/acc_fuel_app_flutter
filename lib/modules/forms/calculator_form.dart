@@ -1,5 +1,6 @@
 import 'package:acc_fuel_app_flutter/utils/helpers/calculate_fuel.dart';
 import 'package:acc_fuel_app_flutter/utils/services/local_storage_service.dart';
+import 'package:acc_fuel_app_flutter/utils/ui/app_toasts.dart';
 import 'package:acc_fuel_app_flutter/widgets/form/input_options.dart';
 import 'package:acc_fuel_app_flutter/widgets/form/lap_time_input.dart';
 import 'package:acc_fuel_app_flutter/widgets/form/laps_input.dart';
@@ -9,6 +10,7 @@ import 'package:acc_fuel_app_flutter/widgets/selections_section.dart';
 import 'package:flutter/material.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/calculate_button.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/save_button.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 // Define a custom Form widget.
 class CalculatorForm extends StatefulWidget {
@@ -65,14 +67,19 @@ class CalculatorFormState extends State<CalculatorForm> {
             children: [
               saveButton(context, onPressed: () {
                 if (litresInput.text != '') {
-                  saveCalcInputs(
-                      tracksNotifier.value,
-                      carNotifier.value,
-                      conditionsNotifier.value,
-                      double.parse(litresInput.text),
-                      minInput.text != '' ? int.parse(minInput.text) : null,
-                      secInput.text != '' ? int.parse(secInput.text) : null,
-                      msInput.text != '' ? int.parse(msInput.text) : null);
+                  try {
+                    saveCalcInputs(
+                        tracksNotifier.value,
+                        carNotifier.value,
+                        conditionsNotifier.value,
+                        double.parse(litresInput.text),
+                        minInput.text != '' ? int.parse(minInput.text) : null,
+                        secInput.text != '' ? int.parse(secInput.text) : null,
+                        msInput.text != '' ? int.parse(msInput.text) : null);
+                    successToast(context);
+                  } catch (e) {
+                    errorToast(context);
+                  }
                 }
               }),
               calculateButton(

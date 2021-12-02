@@ -32,5 +32,7 @@
     "themeOptions": "Temavalg",
     "light": "Lys",
     "dark": "Mørk",
-    "system": "System"
+    "system": "System",
+    "success": "Suksess",
+    "error": "Feil"
     }
