@@ -146,6 +146,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 )),
           ],
         ),
-        body: SingleChildScrollView(child: calculatorScreen(context)));
+        body: SingleChildScrollView(
+            child: Center(
+          child: Container(
+            child: calculatorScreen(context),
+            constraints: const BoxConstraints(maxWidth: 700),
+          ),
+        )));
   }
 }

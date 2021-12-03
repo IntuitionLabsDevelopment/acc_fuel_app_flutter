@@ -10,7 +10,13 @@ class SettingsRoute extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Settings"),
       ),
-      body: SingleChildScrollView(child: settingsScreen(context)),
+      body: SingleChildScrollView(
+          child: Center(
+        child: Container(
+          child: settingsScreen(context),
+          constraints: const BoxConstraints(maxWidth: 700),
+        ),
+      )),
     );
   }
 }

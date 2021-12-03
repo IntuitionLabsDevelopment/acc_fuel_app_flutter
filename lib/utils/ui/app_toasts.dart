@@ -16,11 +16,17 @@ successToast(BuildContext context) {
     child: Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const Icon(Icons.check),
+        const Icon(
+          Icons.check,
+          color: Colors.black,
+        ),
         const SizedBox(
           width: 12.0,
         ),
-        Text(AppLocalizations.of(context)!.success),
+        Text(
+          AppLocalizations.of(context)!.success,
+          style: const TextStyle(color: Colors.black),
+        ),
       ],
     ),
   );
@@ -45,11 +51,17 @@ errorToast(BuildContext context) {
     child: Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const FaIcon(FontAwesomeIcons.times),
+        const FaIcon(
+          FontAwesomeIcons.times,
+          color: Colors.white,
+        ),
         const SizedBox(
           width: 12.0,
         ),
-        Text(AppLocalizations.of(context)!.error),
+        Text(
+          AppLocalizations.of(context)!.error,
+          style: const TextStyle(color: Colors.white),
+        ),
       ],
     ),
   );

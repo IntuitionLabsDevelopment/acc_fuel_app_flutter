@@ -21,14 +21,18 @@ void updateInputs(SharedPreferences prefs) async {
   Map<String, List<dynamic>> userData = await getSavedUserData(
       tracksNotifier.value, carNotifier.value, conditionsNotifier.value);
 
-  minInput.text =
-      userData['lapTime']?[0] != null ? userData['lapTime']![0].toString() : '';
-  secInput.text =
-      userData['lapTime']?[1] != null ? userData['lapTime']![1].toString() : '';
-  msInput.text =
-      userData['lapTime']?[2] != null ? userData['lapTime']![2].toString() : '';
-  litresInput.text =
-      userData['lpl']?[0] != null ? userData['lpl']![0].toString() : '';
+  if (userData['lapTime']?[0] != null) {
+    minInput.text = userData['lapTime']![0].toString();
+  }
+  if (userData['lapTime']?[1] != null) {
+    secInput.text = userData['lapTime']![1].toString();
+  }
+  if (userData['lapTime']?[2] != null) {
+    msInput.text = userData['lapTime']![2].toString();
+  }
+  if (userData['lpl']?[0] != null) {
+    litresInput.text = userData['lpl']![0].toString();
+  }
 }
 
 void updateConditions(String value) async {
