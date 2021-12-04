@@ -49,12 +49,10 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-# TODO: Rework icon and add ios specific icon
 flutter_icons:
-  android: true
+  android: false
   ios: true
-  remove_alpha_ios: true
-  image_path: "assets/icon/android_icon.png"
+  image_path_ios: "assets/icons/ios.png"
 
 flutter_native_splash:
   # This package generates native code to customize Flutter's default white native splash screen
@@ -67,8 +65,8 @@ flutter_native_splash:
   # of your splash screen to a solid color.  Use background_image to set the background of your
   # splash screen to a png image.  This is useful for gradients. The image will be stretch to the
   # size of the app. Only one parameter can be used, color and background_image cannot both be set.
-  color: "#E53935"
-  image: assets/icon/android_icon.png
+  color: "#404040"
+  image: assets/icons/ios.png
   #background_image: "assets/background.png"
   # Optional parameters are listed below.  To enable a parameter, uncomment the line by removing
   # the leading # character.
@@ -128,7 +126,8 @@ flutter:
   uses-material-design: true
   generate: true
   assets:
-    - assets/icon/android_icon.png
+    - assets/icons/android.png
+    - assets/icons/ios.png
 
   fonts:
     - family: Outfit
