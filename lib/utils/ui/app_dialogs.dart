@@ -65,7 +65,7 @@ void calculatorOptionsDialog(BuildContext context) async {
                     return dropdownButton(
                         value: track,
                         title: AppLocalizations.of(context)!.track,
-                        options: constants.tracks.keys.toList(),
+                        options: getAlphabeticalTrackIds(),
                         optionMapper: (dynamic trackId) {
                           return Text(getTrackNameFromId(trackId));
                         },
