@@ -113,7 +113,12 @@ const Map<String, String> cars = {
   '23': 'Porsche 911II GT3 R (2019)',
   '24': 'Ferrari 488 GT3 Evo 2020',
   '25': 'Mercedes-AMG GT3 2020',
+  '26': 'Ferrari 488 Challenge Evo',
+  '27': 'BMW M2 Club Sport Racing',
+  '28': 'Porsche 992 GT3 Cup',
+  '29': 'Lamborghini Huracan ST EVO2',
   '30': 'BMW M4 GT3',
+  '31': 'Audi R8 LMS GT3 Evo 2',
   '50': 'Alpine A110 GT4',
   '51': 'AMR V8 Vantage GT4',
   '52': 'Audi R8 LMS GT4',
@@ -154,6 +159,7 @@ const Map<String, List<String>> classes = {
     '24',
     '25',
     '30',
+    '31',
   ],
   'GT4': [
     '50',
@@ -168,10 +174,14 @@ const Map<String, List<String>> classes = {
     '60',
     '61',
   ],
-  'ST': [
-    '18',
-  ],
-  'Cup': [
+  'GTC': [
     '9',
+    '18',
+    '26',
+    '28',
+    '29',
+  ],
+  'TCX': [
+    '27',
   ],
 };
