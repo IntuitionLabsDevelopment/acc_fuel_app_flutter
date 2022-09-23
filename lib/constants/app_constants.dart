@@ -43,6 +43,9 @@ const Map<String, String> tracks = {
   '16': 'Suzuka',
   '17': 'Zandvoort',
   '18': 'Zolder',
+  '19': 'COTA',
+  '20': 'Indianapolis',
+  '21': 'Watkins Glen'
 };
 
 const Map<String, String> legacyCars = {
