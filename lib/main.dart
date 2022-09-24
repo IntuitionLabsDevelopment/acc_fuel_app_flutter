@@ -53,15 +53,17 @@ Future<void> initCombos() async {
   }
 
   String? setClass = prefs.getString('setClass');
-  if (setClass != null) {
+  String? setCar = prefs.getString('setCar');
+  if (setClass != null && constants.classes.keys.contains(setClass)) {
     updateClass(setClass);
+    if (setCar != null && constants.classes[setClass]!.contains(setCar)) {
+      updateCar(setCar);
+    } else {
+      updateCar(constants.classes[setClass]![0]);
+    }
   } else {
     updateClass('GT3');
-  }
-
-  String? setCar = prefs.getString('setCar');
-  if (setCar != null) {
-    updateCar(setCar);
+    updateCar('0');
   }
 }
 
