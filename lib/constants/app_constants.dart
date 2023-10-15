@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 const String thankYouForInstalling =
     'Thank you for installing the ACC Fuel Calculator app! This was a small personal project to learn app development, which now has over 5,000 installs! I want to add a special thank you to those all over the world who have submitted translations for this app! Finally, if you find this app useful, it would mean a lot if you could leave a review! Once again, thank you!';
 
-const githubRepo = 'https://github.com/jakecoombs/acc_fuel_app_flutter';
+const githubRepo =
+    'https://github.com/IntuitionLabsDevelopment/acc_fuel_app_flutter';
 const suggestionLink = 'https://forms.gle/3b75dArtWMBtt3PT7';
 const translationLink = 'https://forms.gle/Mmjq215Eapdg4YmM7';
 const androidProVersion =
