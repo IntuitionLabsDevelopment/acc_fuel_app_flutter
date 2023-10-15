@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 const String thankYouForInstalling =
-    'I am Jake, a University Student studying Computer Science, this has been one of my personal projects to get started in app development. I never expected it to have around 5000 users! This is the 3rd time I have reworked the app, I hope you enjoy the improvements, and I am excited for future planned changes. One change that I can share is that in the near future the app will be able to save your data to the cloud, allowing your data to be saved and used across devices, as well as be synced with the web version for PC when it is released! The source code for this app is now public and the link can be found in the settings. I want to add a special thank you to those all over the world who have submitted translations for this app! Finally, if you find this app useful, it would mean a lot if you could leave a review! Once again, thank you!';
+    'Thank you for installing the ACC Fuel Calculator app! This was a small personal project to learn app development, which now has over 5,000 installs! I want to add a special thank you to those all over the world who have submitted translations for this app! Finally, if you find this app useful, it would mean a lot if you could leave a review! Once again, thank you!';
 
 const githubRepo = 'https://github.com/jakecoombs/acc_fuel_app_flutter';
 const suggestionLink = 'https://forms.gle/3b75dArtWMBtt3PT7';
@@ -45,7 +45,8 @@ const Map<String, String> tracks = {
   '18': 'Zolder',
   '19': 'COTA',
   '20': 'Indianapolis',
-  '21': 'Watkins Glen'
+  '21': 'Watkins Glen',
+  '22': 'Valencia'
 };
 
 const Map<String, String> legacyCars = {
@@ -122,6 +123,10 @@ const Map<String, String> cars = {
   '29': 'Lamborghini Huracan ST EVO2',
   '30': 'BMW M4 GT3',
   '31': 'Audi R8 LMS GT3 Evo 2',
+  '32': 'Ferrari 296 GT3',
+  '33': 'Lamborghini Huracan Evo2',
+  '34': 'Porsche 992 GT3 R',
+  '35': 'McLaren 720S GT3 Evo 2023',
   '50': 'Alpine A110 GT4',
   '51': 'AMR V8 Vantage GT4',
   '52': 'Audi R8 LMS GT4',
@@ -163,6 +168,10 @@ const Map<String, List<String>> classes = {
     '25',
     '30',
     '31',
+    '32',
+    '33',
+    '34',
+    '35',
   ],
   'GT4': [
     '50',
