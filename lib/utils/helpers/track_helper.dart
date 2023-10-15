@@ -16,3 +16,11 @@ String getTrackNameFromId(String id) {
   }
   return name;
 }
+
+List<String> getAlphabeticalTrackIds() {
+  List<String> alphabeticalTrackNames = List.from(constants.tracks.values)
+    ..sort((a, b) => a.compareTo(b));
+  List<String> trackIds = List.from(
+      alphabeticalTrackNames.map((trackName) => getTrackIdFromName(trackName)));
+  return trackIds;
+}

@@ -19,7 +19,7 @@ void migrationDialog(BuildContext context) async {
       content: const SizedBox(
           height: 200,
           child: Scrollbar(
-            isAlwaysShown: true,
+            thumbVisibility: true,
             radius: Radius.circular(5),
             child: SingleChildScrollView(
                 child: Text(constants.thankYouForInstalling)),
@@ -65,7 +65,7 @@ void calculatorOptionsDialog(BuildContext context) async {
                     return dropdownButton(
                         value: track,
                         title: AppLocalizations.of(context)!.track,
-                        options: constants.tracks.keys.toList(),
+                        options: getAlphabeticalTrackIds(),
                         optionMapper: (dynamic trackId) {
                           return Text(getTrackNameFromId(trackId));
                         },
