@@ -19,7 +19,7 @@ void migrationDialog(BuildContext context) async {
       content: const SizedBox(
           height: 200,
           child: Scrollbar(
-            isAlwaysShown: true,
+            thumbVisibility: true,
             radius: Radius.circular(5),
             child: SingleChildScrollView(
                 child: Text(constants.thankYouForInstalling)),
