@@ -151,8 +151,8 @@ class _MyHomePageState extends State<MyHomePage> {
         body: SingleChildScrollView(
             child: Center(
           child: Container(
-            child: calculatorScreen(context),
             constraints: const BoxConstraints(maxWidth: 700),
+            child: calculatorScreen(context),
           ),
         )));
   }

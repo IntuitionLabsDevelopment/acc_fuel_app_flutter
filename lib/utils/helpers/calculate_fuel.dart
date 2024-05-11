@@ -37,7 +37,7 @@ void calculateFuel() {
     int totalSecs = totalMins * 60;
     double totalLapSecs = (lapMins * 60 + lapSecs).toDouble();
     if (msInput.text != '') {
-      totalLapSecs += double.parse('0.' + msInput.text);
+      totalLapSecs += double.parse('0.${msInput.text}');
     }
     laps += (totalSecs ~/ totalLapSecs).ceil();
   } else {

@@ -47,7 +47,9 @@ const Map<String, String> tracks = {
   '19': 'COTA',
   '20': 'Indianapolis',
   '21': 'Watkins Glen',
-  '22': 'Valencia'
+  '22': 'Valencia',
+  '23': 'Red Bull Ring',
+  '24': '24h Nurb'
 };
 
 const Map<String, String> legacyCars = {
@@ -128,6 +130,7 @@ const Map<String, String> cars = {
   '33': 'Lamborghini Huracan Evo2',
   '34': 'Porsche 992 GT3 R',
   '35': 'McLaren 720S GT3 Evo 2023',
+  '36': 'Ford Mustang GT3',
   '50': 'Alpine A110 GT4',
   '51': 'AMR V8 Vantage GT4',
   '52': 'Audi R8 LMS GT4',
@@ -139,6 +142,12 @@ const Map<String, String> cars = {
   '59': 'McLaren 570S GT4',
   '60': 'Mercedes-AMG GT4',
   '61': 'Porsche 718 Cayman GT4',
+  '80': 'Audi R8 LMS GT2',
+  '82': 'KTM XBOW GT2',
+  '83': 'Maserati MC20 GT2',
+  '84': 'Mercedes AMG GT2',
+  '85': 'Porsche 911 GT2 RS CS Evo',
+  '86': 'Porsche 935',
 };
 
 const Map<String, List<String>> classes = {
@@ -186,6 +195,14 @@ const Map<String, List<String>> classes = {
     '59',
     '60',
     '61',
+  ],
+  'GT2': [
+    '80',
+    '82',
+    '83',
+    '84',
+    '85',
+    '86',
   ],
   'GTC': [
     '9',
