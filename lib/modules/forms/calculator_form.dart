@@ -37,8 +37,8 @@ class CalculatorFormState extends State<CalculatorForm> {
               builder:
                   (BuildContext context, bool isUsingStint, Widget? child) {
                 return Visibility(
-                  child: lapTimeFields(),
                   visible: isUsingStint,
+                  child: lapTimeFields(),
                 );
               }),
           Row(
@@ -53,9 +53,9 @@ class CalculatorFormState extends State<CalculatorForm> {
                     builder: (BuildContext context, bool isUsingStint,
                         Widget? child) {
                       return Visibility(
-                        child: stintLengthField(),
                         replacement: lapsInputField(),
                         visible: isUsingStint,
+                        child: stintLengthField(),
                       );
                     }),
               ),

@@ -13,8 +13,8 @@ class SettingsRoute extends StatelessWidget {
       body: SingleChildScrollView(
           child: Center(
         child: Container(
-          child: settingsScreen(context),
           constraints: const BoxConstraints(maxWidth: 700),
+          child: settingsScreen(context),
         ),
       )),
     );

@@ -4,8 +4,6 @@ import 'package:acc_fuel_app_flutter/widgets/buttons/github_button.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/leave_review_button.dart';
 import 'package:acc_fuel_app_flutter/widgets/theme_options_dropdown.dart';
 import 'package:acc_fuel_app_flutter/widgets/buttons/purchase_pro_version.dart';
-import 'package:acc_fuel_app_flutter/widgets/buttons/submit_translation_button.dart';
-import 'package:acc_fuel_app_flutter/widgets/buttons/suggestion_button.dart';
 import 'package:acc_fuel_app_flutter/widgets/language_dropdown.dart';
 import 'package:acc_fuel_app_flutter/widgets/unit_switch.dart';
 import 'package:flutter/material.dart';
@@ -30,9 +28,6 @@ Widget settingsScreen(BuildContext context) {
           themeOptions(),
           spacer(),
           languageDropdown(),
-          submitTranslationButton(),
-          spacer(),
-          suggestionButton(context),
           spacer(),
           githubButton(context),
           spacer(),
